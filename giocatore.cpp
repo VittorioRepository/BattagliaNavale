@@ -26,7 +26,7 @@ void giocatore::posizionamento_navi_giocatore(){
     int y;
     char orientazione;
     int lunghezza;
-    int controllo_compenetrazione_e_dimensioni;
+    int controllo_compenetrazione_e_dimensioni = 0;
 
     for(int i=0; i<10; i++){
 
@@ -58,7 +58,7 @@ void giocatore::posizionamento_navi_giocatore(){
 
         if(orientazione=='O'){ //Caso orizzontale
 
-            if(x+lunghezza<9){ //controllo dimensioni board
+            if(x+lunghezza<11){ //controllo dimensioni board
                 for(int k=0; k<lunghezza; k++){
                     if(tabella[y][x+k]=='O'){ //controllo se è gia' presente una nave
                         i--; //se e' presente, abbasso l'indice di 1
@@ -72,7 +72,7 @@ void giocatore::posizionamento_navi_giocatore(){
                     }
                 }
             }
-            else if (x+lunghezza>9){ //la nave esce dalla board
+            else if (x+lunghezza>10){ //la nave esce dalla board
                 i--;
                 controllo_compenetrazione_e_dimensioni = 1;
             }
@@ -81,7 +81,7 @@ void giocatore::posizionamento_navi_giocatore(){
 
         else if(orientazione=='V'){ //Caso verticale
 
-            if(y+lunghezza<9){ //controllo dimensioni board
+            if(y+lunghezza<11){ //controllo dimensioni board
                 for(int k=0; k<lunghezza; k++){
                     if(tabella[y+k][x]=='O'){ //controllo se è gia' presente una nave
                         i--; //se e' presente, abbasso l'indice di 1
@@ -95,8 +95,9 @@ void giocatore::posizionamento_navi_giocatore(){
                     }
                 }
             }
-            else if (y+lunghezza>9){
+            else if (y+lunghezza>10){
                 i--;
+                controllo_compenetrazione_e_dimensioni = 1;
             }
         }
 
