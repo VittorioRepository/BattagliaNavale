@@ -446,3 +446,37 @@
 	<string>
 	"nave.h"
 
+1680855303 source:c:\users\vitto\documents\github\battaglianavale\board.cpp
+	"board.h"
+	"nave.h"
+
+1680855303 c:\users\vitto\documents\github\battaglianavale\board.h
+	<string>
+	<iostream>
+	"nave.h"
+	"funzioni.h"
+
+1680855303 c:\users\vitto\documents\github\battaglianavale\nave.h
+	<string>
+	<iostream>
+	"funzioni.h"
+
+1680855303 c:\users\vitto\documents\github\battaglianavale\funzioni.h
+	<iostream>
+	<string>
+	"nave.h"
+
+1680855303 source:c:\users\vitto\documents\github\battaglianavale\funzioni.cpp
+	"funzioni.h"
+
+1680857073 source:c:\users\vitto\documents\github\battaglianavale\main.cpp
+	<iostream>
+	"nave.h"
+	"board.h"
+	<string>
+	<limits>
+	"funzioni.h"
+
+1680855303 source:c:\users\vitto\documents\github\battaglianavale\nave.cpp
+	"nave.h"
+

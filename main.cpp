@@ -4,6 +4,7 @@
 #include "board.h"
 
 #include <string>
+#include <limits>
 
 #include "funzioni.h"
 
@@ -20,26 +21,35 @@ int main()
     do{
         cout << "Modalita' Giocatore Singolo (inserisci 1) o 2 Giocatori (inserisci 2)? ";
         cin >> numero_giocatori;
-        if(numero_giocatori!=1 or numero_giocatori!=2){
+        if(cin.fail()){
+            cin.clear();
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             cout << "Hai inserito un valore non valido!\n";
         }
-    }while(numero_giocatori!=1 or numero_giocatori!=2);
+        else{
+            if(numero_giocatori==1 or numero_giocatori==2) break;
+        }
+
+    }while(true);
 
     if (numero_giocatori==1){
         system("cls");
         titolo();
-        cout << "\nHai scelto: Modalita' Giocatore Singolo\n";
+        cout << "Hai scelto: Modalita' Giocatore Singolo\n";
         cout << "Nome Giocatore: ";
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         getline(cin, nome);
     }
     else {
         system("cls");
         titolo();
-        cout << "\nHai scelto: Modalita' 2 Giocatori\n";
+        cout << "Hai scelto: Modalita' 2 Giocatori\n";
         cout << "Nome Giocatore 1: ";
-        cin >> nome;
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        getline(cin, nome);
         cout << "Nome Giocatore 2: ";
-        cin >> nome2;
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        getline(cin, nome2);
 
     }
 
@@ -81,11 +91,14 @@ int main()
 
 
 
+    //GAMEPLAY 2 GIOCATORI
+
+
     if(numero_giocatori==2){
         board giocatore1(nome);
         board giocatore2(nome2);
 
-        //POSIZIONAMENTO GIOCATORE 1
+        //POSIZIONAMENTO NAVI GIOCATORE 1
 
         giocatore1.posizionamento_navi_giocatore();
 
@@ -97,7 +110,7 @@ int main()
         //PASSO
         passo();
 
-        //POSIZIONAMENTO GIOCATORE 2
+        //POSIZIONAMENTO NAVI GIOCATORE 2
         giocatore2.posizionamento_navi_giocatore();
         system("cls");
 
