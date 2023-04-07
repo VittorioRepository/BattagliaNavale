@@ -26,6 +26,15 @@ void trasformazione_coordinate_ridotta(string s, int &x, int &y){ //SENZA ORIENT
 }
 
 
+string trasformazione_coordinate_ridotta_inversa(int x, int y){
+    char c = static_cast<char>('A' + x);
+    string s = "";
+    s += c;
+    s += to_string(y+1);
+    return s;
+}
+
+
 
 void titolo(){
     cout << "------------------------------ BATTAGLIA NAVALE --------------------------------" << endl << endl;

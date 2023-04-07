@@ -19,12 +19,10 @@ public:
     board(string);
     void set_board();
 
-    void posizionamento_navi_giocatore();
-
-    // void posizionamento_navi_computer(); // DA SCRIVERE PER LA MODALITA' GIOCATORE SINGOLO
-
     void visualizzazione_amica();
     void visualizzazione_nemica();
+    bool controllo_contatore_globale();
+
 
     nave d2_1;
     nave d2_2;
@@ -42,14 +40,15 @@ public:
     char tabella[10][10];
     char tabella_nemica[10][10];
 
-    bool controllo_contatore_globale();
+    int giocate_precedenti[100][2];
 
+
+    string nome_giocatore;
 
 
 private:
     const int num_rows = 10;
     const int num_cols = 10;
-    string nome_giocatore = "AI";
     int contatore_globale=0;
 
 

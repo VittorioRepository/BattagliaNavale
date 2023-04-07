@@ -37,10 +37,14 @@
 		<Linker>
 			<Add directory="C:/Users/vitto/Desktop/TCF/BATTAGLIA NAVALE/SFML-2.5.1/lib" />
 		</Linker>
+		<Unit filename="AI.cpp" />
+		<Unit filename="AI.h" />
 		<Unit filename="board.cpp" />
 		<Unit filename="board.h" />
 		<Unit filename="funzioni.cpp" />
 		<Unit filename="funzioni.h" />
+		<Unit filename="giocatore.cpp" />
+		<Unit filename="giocatore.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="nave.cpp" />
 		<Unit filename="nave.h" />

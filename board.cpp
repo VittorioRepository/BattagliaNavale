@@ -1,5 +1,5 @@
 #include "board.h"
-#include "nave.h"
+
 
 
 
@@ -28,66 +28,7 @@ void board::set_board(){
 
 
 
-void board::posizionamento_navi_giocatore(){
 
-    // SETTO LA LUNGHEZZA DELLE NAVI (il costruttore mi dava problemi)
-    nomi_navi[0].set_lunghezza(2);
-    nomi_navi[1].set_lunghezza(2);
-    nomi_navi[2].set_lunghezza(2);
-    nomi_navi[3].set_lunghezza(2);
-    nomi_navi[4].set_lunghezza(3);
-    nomi_navi[5].set_lunghezza(3);
-    nomi_navi[6].set_lunghezza(3);
-    nomi_navi[7].set_lunghezza(4);
-    nomi_navi[8].set_lunghezza(4);
-    nomi_navi[9].set_lunghezza(6);
-
-
-    // QUI FACCIAMO INSERIRE DAL GIOCATORE LE COORDINATE ALL'INTERNO DELLE ISTANZE NAVI
-    string temporanea;
-    int x;
-    int y;
-    char orientazione;
-    int lunghezza;
-
-    for(int i=0; i<10; i++){
-
-        titolo2();
-        cout << "\nQui puo' posizionare le proprie navi " << nome_giocatore << ":" << endl;
-        cout << "\nPer posizionare le navi devi dirmi le coordinate della casella piu' in alto a sinistra in cui vuoi che si trovi la nave\nE poi devi dirmi se vuoi posizionarla in orizzontale o verticale\n";
-        cout << "Ad esempio per una nave posizionata in orizzontale a partire dalla casella B2 dovrai digitare B2O, in verticale B2V.\n";
-
-        visualizzazione_amica();
-
-        cout << "\nPosiziona un " << nomi_navi[i].get_name() << " di lunghezza " << nomi_navi[i].get_lunghezza() << ": ";
-        cin >> temporanea;
-        nomi_navi[i].set_posizione(temporanea);
-
-        system("cls");
-
-
-        //QUI DISEGNAMO SUL TABELLONE LE NAVI
-
-        x=nomi_navi[i].get_x();
-        y=nomi_navi[i].get_y();
-        orientazione=nomi_navi[i].get_orientazione();
-        lunghezza=nomi_navi[i].get_lunghezza();
-
-
-        if(orientazione=='O'){
-            for(int k=0; k<lunghezza; k++){
-                tabella[y][x+k]='O';
-            }
-        }
-        else if(orientazione=='V'){
-            for(int k=0;k<lunghezza; k++){
-                tabella[y+k][x]='O';
-            }
-        }
-
-    }
-
-}
 
 
 
