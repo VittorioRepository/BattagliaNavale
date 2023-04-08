@@ -34,8 +34,7 @@ void ai::posizionamento_navi_AI(){
         lunghezza=nomi_navi[i].get_lunghezza();
         x=coordinata_random();
         y=coordinata_random();
-        
-        
+                
 
         if (coordinata_random()%2==0){   //Caso orizzontale
 
@@ -43,33 +42,32 @@ void ai::posizionamento_navi_AI(){
 
             if(casella_partenza(lunghezza,x,y,direzione)){
                 for(int k=0; k<lunghezza; k++){
-                    tabella[y][x+k]='O';
-                    i++;
+                    tabella[y][x+k]='O';                
                 }
+                i++;
             }
             else if(casella_partenza(lunghezza,x+1,y+1,direzione)){
                 for(int k=0; k<lunghezza; k++){
                     tabella[y][x+k]='O';
-                    i++;
                 }
+                i++;
             }
             else if(casella_partenza(lunghezza,x-1,y-1,direzione)){
                 for(int k=0; k<lunghezza; k++){
-                    tabella[y][x+k]='O';
-                    i++;
+                    tabella[y][x+k]='O';   
                 }
+                i++;
             }
             else if(casella_partenza(lunghezza,x-1,y+1,direzione)){
                 for(int k=0; k<lunghezza; k++){
                     tabella[y][x+k]='O';
-                    i++;
                 }
+                i++;
             }
             else if(casella_partenza(lunghezza,x+1,y-1,direzione)){for(int k=0; k<lunghezza; k++){
                     tabella[y][x+k]='O';
-                    i++;
                 }
-        
+                i++;
             }
          
         }
@@ -82,34 +80,32 @@ void ai::posizionamento_navi_AI(){
             if(casella_partenza(lunghezza,x,y,direzione)){
                 for(int k=0; k<lunghezza; k++){
                     tabella[y+k][x]='O';
-                    i++;
                 }
+                i++;
             }
             else if(casella_partenza(lunghezza,x+1,y+1,direzione)){
                 for(int k=0; k<lunghezza; k++){
                     tabella[y+k][x]='O';
-                    i++;
                 }
+                i++;
             }
             else if(casella_partenza(lunghezza,x-1,y-1,direzione)){
                 for(int k=0; k<lunghezza; k++){
                     tabella[y+k][x]='O';
-                    i++;
                 }
+                i++;
             }
             else if(casella_partenza(lunghezza,x-1,y+1,direzione)){
                 for(int k=0; k<lunghezza; k++){
                     tabella[y+k][x]='O';
-                    i++;
                 }
+                i++;
             }
-            else if(casella_partenza(lunghezza,x+1,y-1,direzione)){for(int k=0; k<lunghezza; k++){
+            else if(casella_partenza(lunghezza,x+1,y-1,direzione)){
+                for(int k=0; k<lunghezza; k++){
                     tabella[y+k][x]='O';
-                    i++;
                 }
-        
-        
-        
+                i++;
             }
 
 
