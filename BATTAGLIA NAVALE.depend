@@ -477,13 +477,13 @@
 	"modalita.h"
 	"scelta_nomi.h"
 
-1680855303 source:c:\users\vitto\documents\github\battaglianavale\nave.cpp
+1680938878 source:c:\users\vitto\documents\github\battaglianavale\nave.cpp
 	"nave.h"
 
 1680870924 source:c:\users\vitto\documents\github\battaglianavale\ai.cpp
 	"ai.h"
 
-1680870924 source:c:\users\vitto\documents\github\battaglianavale\giocatore.cpp
+1680909124 source:c:\users\vitto\documents\github\battaglianavale\giocatore.cpp
 	"giocatore.h"
 
 1680865862 c:\users\vitto\documents\github\battaglianavale\giocatore.h
@@ -500,7 +500,7 @@
 	"funzioni.h"
 	"board.h"
 
-1680872688 source:c:\users\vitto\documents\github\battaglianavale\gameplay.cpp
+1680938525 source:c:\users\vitto\documents\github\battaglianavale\gameplay.cpp
 	"gameplay.h"
 
 1680872688 c:\users\vitto\documents\github\battaglianavale\gameplay.h
