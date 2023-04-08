@@ -22,7 +22,7 @@ public:
     ai();
     ai(string);
     void posizionamento_navi_AI(); // DA SCRIVERE PER LA MODALITA' GIOCATORE SINGOLO;
-    void scelta_casella_da_colpire( int &, int &);
+    int scelta_casella_da_colpire();
     int coordinata_random();
     bool casella_partenza(int, int, int, string);
 
