@@ -21,76 +21,104 @@ void ai::posizionamento_navi_AI(){
     nomi_navi[9].set_lunghezza(6);
 
     // AI POSIZIONA LE NAVI COME GIOCATORE (INVECE DI INPUT DA TASTIERA USO RANDOM)
-    string temporanea;
+    
     int i=0;
     int x;
     int y;
     int lunghezza;
-    int controllo_compenetrazione_e_dimensioni = 0;
+    string direzione;
+    
 
     while(i<10){
 
         lunghezza=nomi_navi[i].get_lunghezza();
         x=coordinata_random();
         y=coordinata_random();
-        temporanea=trasformazione_coordinate_ridotta_inversa(x,y);
-        controllo_compenetrazione_e_dimensioni=0;
+        
+        
 
         if (coordinata_random()%2==0){   //Caso orizzontale
 
-             if(x+lunghezza<11){ //controllo dimensioni board
+            direzione="o";
+
+            if(casella_partenza(lunghezza,x,y,direzione)){
                 for(int k=0; k<lunghezza; k++){
-                    if(tabella[y][x+k]=='O'){ //controllo se � gia' presente una nave
-                        i--; //se e' presente, abbasso l'indice di 1
-                        controllo_compenetrazione_e_dimensioni = 1; //compenetrazione
-                        // fermo il ciclo
-                    };
-                }
-                if(controllo_compenetrazione_e_dimensioni==0){
-                    for(int k=0; k<lunghezza; k++){
-                    tabella[y][x+k]='O'; //indicatore presenza nave "O"
-                    }
+                    tabella[y][x+k]='O';
                     i++;
                 }
             }
-            else if (x+lunghezza>10){ //la nave esce dalla board
-                i--;
-                controllo_compenetrazione_e_dimensioni = 1;
+            else if(casella_partenza(lunghezza,x+1,y+1,direzione)){
+                for(int k=0; k<lunghezza; k++){
+                    tabella[y][x+k]='O';
+                    i++;
+                }
             }
-
-        } 
-
-        else {  //Caso verticale 
-        
-            if(y+lunghezza<11){ //controllo dimensioni board
-                    for(int k=0; k<lunghezza; k++){
-                        if(tabella[y+k][x]=='O'){ //controllo se � gia' presente una nave
-                            i--; //se e' presente, abbasso l'indice di 1
-                            controllo_compenetrazione_e_dimensioni = 1; //compenetrazione
-                            //fermo il ciclo 
-                        };
-                    }
-                    if(controllo_compenetrazione_e_dimensioni==0){
-                        for(int k=0; k<lunghezza; k++){
-                        tabella[y+k][x]='O'; //indicatore presenza nave "O"
-                        }
-                        i++;
-                    }
+            else if(casella_partenza(lunghezza,x-1,y-1,direzione)){
+                for(int k=0; k<lunghezza; k++){
+                    tabella[y][x+k]='O';
+                    i++;
                 }
-                else if (y+lunghezza>10){
-                    i--;
-                    controllo_compenetrazione_e_dimensioni = 1;
+            }
+            else if(casella_partenza(lunghezza,x-1,y+1,direzione)){
+                for(int k=0; k<lunghezza; k++){
+                    tabella[y][x+k]='O';
+                    i++;
+                }
+            }
+            else if(casella_partenza(lunghezza,x+1,y-1,direzione)){for(int k=0; k<lunghezza; k++){
+                    tabella[y][x+k]='O';
+                    i++;
                 }
         
-        
-        
+            }
+         
         }
 
 
+        else {  //Caso verticale 
+        
+            direzione="v";
+
+            if(casella_partenza(lunghezza,x,y,direzione)){
+                for(int k=0; k<lunghezza; k++){
+                    tabella[y+k][x]='O';
+                    i++;
+                }
+            }
+            else if(casella_partenza(lunghezza,x+1,y+1,direzione)){
+                for(int k=0; k<lunghezza; k++){
+                    tabella[y+k][x]='O';
+                    i++;
+                }
+            }
+            else if(casella_partenza(lunghezza,x-1,y-1,direzione)){
+                for(int k=0; k<lunghezza; k++){
+                    tabella[y+k][x]='O';
+                    i++;
+                }
+            }
+            else if(casella_partenza(lunghezza,x-1,y+1,direzione)){
+                for(int k=0; k<lunghezza; k++){
+                    tabella[y+k][x]='O';
+                    i++;
+                }
+            }
+            else if(casella_partenza(lunghezza,x+1,y-1,direzione)){for(int k=0; k<lunghezza; k++){
+                    tabella[y+k][x]='O';
+                    i++;
+                }
+        
+        
+        
+            }
+
+
+        }
+
     }
 
-
 }
+
 
 
 
@@ -104,5 +132,52 @@ int ai::coordinata_random(){
 
     srand(time(0));
     return rand()%10;
+
+}
+
+bool ai::casella_partenza(int lunghezza, int x, int y, string direzione){
+
+    if (direzione=="o"){
+
+        if(x+lunghezza<11){ //controllo dimensioni board
+                for(int k=0; k<lunghezza; k++){
+                    if(tabella[y][x+k]=='O'){ //controllo se � gia' presente una nave
+                        
+                        return false; //fermo il ciclo
+                        
+                    };
+                }
+                
+                
+            }
+            if (x+lunghezza>10){ //la nave esce dalla board
+                
+                return false;
+            }
+    }
+
+    if (direzione=="v"){
+
+        if(y+lunghezza<11){ //controllo dimensioni board
+                for(int k=0; k<lunghezza; k++){
+                    if(tabella[y+k][x]=='O'){ //controllo se � gia' presente una nave
+                        
+                        return false; //fermo il ciclo
+                        
+                    };
+                }
+                
+                
+            }
+            if (y+lunghezza>10){ //la nave esce dalla board
+                
+                return false;
+            }
+
+
+
+    }  
+
+    return true;  
 
 }
