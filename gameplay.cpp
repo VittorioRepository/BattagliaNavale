@@ -221,8 +221,7 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
     if(numero_giocatori==1){
         giocatore giocatore1(nome);
         ai giocatoreAI(nome2);
-        bool memoria_AI=false;
-        int contatore_spostamenti=0;
+        
 
     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -230,8 +229,8 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
 
     // ******************* SOLO PER PROVA *************** DA TOGLIERE ****************
     
-    giocatoreAI.posizionamento_navi_AI();
-    giocatoreAI.visualizzazione_amica();
+    // giocatoreAI.posizionamento_navi_AI();
+    // giocatoreAI.visualizzazione_amica();
 
 
     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -282,7 +281,7 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
             cout << "\n\n--------------- Turno di " << nome << " ---------------" << endl;
             cout << "Puoi scegliere che casella avversaria colpire." << endl;
             giocatore1.visualizzazione_amica();
-            giocatoreAI.visualizzazione_amica();
+            giocatoreAI.visualizzazione_nemica();
 
             cout << "\nInserisci casella: ";
             cin >> casella;
@@ -337,137 +336,59 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
 
             //TURNO GIOCATORE 2
 
-            if(memoria_AI){
+            x_tiro=giocatoreAI.scelta_x_da_colpire();
+            y_tiro=giocatoreAI.scelta_y_da_colpire();
+            casella = trasformazione_coordinate_ridotta_inversa(x_tiro,y_tiro);
+        
+            if(giocatore1.tabella[y_tiro][x_tiro]=='O'){
+                giocatore1.tabella[y_tiro][x_tiro]='X';
+                giocatore1.tabella_nemica[y_tiro][x_tiro]='X';
 
-                if(contatore_spostamenti==0){
-                    x_tiro-=1;
-                    y_tiro-=1;
-                    contatore_spostamenti+=1;
-                }
-                if(contatore_spostamenti==1){
-                    x_tiro+=1;
-                    contatore_spostamenti+=1;
-                }
-                if(contatore_spostamenti==2){
-                    x_tiro+=1;
-                    contatore_spostamenti+=1;
-                }
-                if(contatore_spostamenti==3){
-                    x_tiro-=2;
-                    y_tiro+=1;
-                    contatore_spostamenti+=1;
-                }
-                if(contatore_spostamenti==4){
-                    x_tiro+=1;
-                    contatore_spostamenti+=1;
-                }
-                if(contatore_spostamenti==5){
-                    x_tiro+=1;
-                    contatore_spostamenti+=1;
-                }
-                if(contatore_spostamenti==6){
-                    x_tiro-=2;
-                    y_tiro+=1;
-                    contatore_spostamenti+=1;
-                }
-                if(contatore_spostamenti==7){
-                    x_tiro+=1;
-                    contatore_spostamenti+=1;
-                }
-                if(contatore_spostamenti==8){
-                    x_tiro+=1;
-                    contatore_spostamenti=0;
-                }
+                giocatoreAI.set_memoria(true);
+                giocatoreAI.set_colpo_precedente(x_tiro,y_tiro);
+                
+                for(int i=0; i<10; i++){
+                    giocatore1.nomi_navi[i].controllo_colpito_o_affondato(x_tiro,y_tiro);
 
-                casella = trasformazione_coordinate_ridotta_inversa(x_tiro,y_tiro);
-
-                if(giocatore1.tabella[y_tiro][x_tiro]=='O'){
-                    giocatore1.tabella[y_tiro][x_tiro]='X';
-                    giocatore1.tabella_nemica[y_tiro][x_tiro]='X';
-                    for(int i=0; i<10; i++){
-                        giocatore1.nomi_navi[i].controllo_colpito_o_affondato(x_tiro,y_tiro);
-                        if(giocatore1.nomi_navi[i].get_stato()==1) memoria_AI=false;
-                    }
+                }
+                
+                
 
                     
 
-                    //Seguenti 3 linee inserite per bellezza per non far vedere lo stacco nel terminale
-                        titolo2();
-                        cout << "Casella scelta dall'avversario: " << casella << endl << endl;
-                        giocatore1.visualizzazione_amica();
-
-                    cout << "\nCOLPITO!  X" << endl;
-                }
-
-                else{
-                    giocatore1.tabella[y_tiro][x_tiro]='~';
-                    giocatore1.tabella_nemica[y_tiro][x_tiro]='~';
-
-                    //Seguenti 3 linee inserite per bellezza per non far vedere lo stacco nel terminale
-                        titolo2();
-                        cout << "Casella scelta dall'avversario: " << casella << endl << endl;
-                        giocatore1.visualizzazione_amica();
-
-                    cout << "\nACQUA: ~     :(" << endl;
-                }
-
-                check = giocatore1.controllo_contatore_globale();
-                if(check==true){
-                    cout << "\n\nIL GIOCATORE " << nome2 << " HA VINTO!!!";
-                    giocatore1.visualizzazione_amica();
-                    giocatoreAI.visualizzazione_amica();
-                    cout << "IL GIOCATORE " << nome2 << " HA VINTO!!!";
-                    break;
-                }
-
-
+            //Seguenti 3 linee inserite per bellezza per non far vedere lo stacco nel terminale
+                titolo2();
+                cout << "Casella scelta dall'avversario: " << casella << endl << endl;
+                giocatore1.visualizzazione_amica();
+                cout << "\nCOLPITO!  X" << endl;
             }
 
+            else{  
 
-            else{
+                giocatore1.tabella[y_tiro][x_tiro]='~';
+                giocatore1.tabella_nemica[y_tiro][x_tiro]='~';
 
-                x_tiro=giocatoreAI.scelta_casella_da_colpire();
-                y_tiro=giocatoreAI.scelta_casella_da_colpire();
-                casella = trasformazione_coordinate_ridotta_inversa(x_tiro,y_tiro);
+                if(giocatoreAI.get_memoria()) giocatoreAI.aumenta_contatore_colpi();
 
-                if(giocatore1.tabella[y_tiro][x_tiro]=='O'){
-                    giocatore1.tabella[y_tiro][x_tiro]='X';
-                    giocatore1.tabella_nemica[y_tiro][x_tiro]='X';
-                    for(int i=0; i<10; i++){
-                        giocatore1.nomi_navi[i].controllo_colpito_o_affondato(x_tiro,y_tiro);
-                    }
 
                     //Seguenti 3 linee inserite per bellezza per non far vedere lo stacco nel terminale
-                        titolo2();
-                        cout << "Casella scelta dall'avversario: " << casella << endl << endl;
-                        giocatore1.visualizzazione_amica();
-
-                    cout << "\nCOLPITO!  X" << endl;
-                    memoria_AI=true;
-                }
-
-
-                else{
-                    giocatore1.tabella[y_tiro][x_tiro]='~';
-                    giocatore1.tabella_nemica[y_tiro][x_tiro]='~';
-
-                    //Seguenti 3 linee inserite per bellezza per non far vedere lo stacco nel terminale
-                        titolo2();
-                        cout << "Casella scelta dall'avversario: " << casella << endl << endl;
-                        giocatore1.visualizzazione_amica();
-
-                    cout << "\nACQUA: ~     :(" << endl;
-                }
-
-                check = giocatore1.controllo_contatore_globale();
-                if(check==true){
-                    cout << "\n\nIL GIOCATORE " << nome2 << " HA VINTO!!!";
-                    giocatore1.visualizzazione_amica();
-                    giocatoreAI.visualizzazione_amica();
-                    cout << "IL GIOCATORE " << nome2 << " HA VINTO!!!";
-                    break;
-                }
+                titolo2();
+                cout << "Casella scelta dall'avversario: " << casella << endl << endl;
+                giocatore1.visualizzazione_amica();
+                cout << "\nACQUA: ~     :(" << endl;
             }
+
+            check = giocatore1.controllo_contatore_globale();
+            if(check==true){
+                cout << "\n\nIL GIOCATORE " << nome2 << " HA VINTO!!!";
+                giocatore1.visualizzazione_amica();
+                giocatoreAI.visualizzazione_amica();
+                cout << "IL GIOCATORE " << nome2 << " HA VINTO!!!";
+                break;
+            }
+            
+
+            
             //PASSO TURNO
             passo();
 
