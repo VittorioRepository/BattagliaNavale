@@ -138,8 +138,42 @@ void ai::posizionamento_navi_AI(){
 
 
 
-int ai::scelta_casella_da_colpire(){
-    return coordinata_random();
+int ai::scelta_x_da_colpire(){
+    if(!memoria) return coordinata_random();
+
+    else{
+        spostamenti[0]=1;
+        spostamenti[1]=-1;
+        direzione_colpo=rand()%2;
+        if(direzione_colpo==0){
+
+            if(colpo_precedente[0]==0) return 1;
+            else if(colpo_precedente[0]==9) return 8;
+            else return colpo_precedente[0]+spostamenti[rand()%2];
+        }   
+        else return colpo_precedente[0];
+    
+    }
+    
+    }
+
+
+int ai::scelta_y_da_colpire(){
+
+    if(!memoria) return coordinata_random();
+
+    else{
+        spostamenti[0]=1;
+        spostamenti[1]=-1;
+        if(direzione_colpo==1){
+
+            if(colpo_precedente[1]==0) return 1;
+            else if(colpo_precedente[1]==9) return 8;
+            else return colpo_precedente[1]+spostamenti[rand()%2];
+        }   
+        else return colpo_precedente[1];
+    
+    }
 }
 
 
@@ -192,4 +226,25 @@ bool ai::casella_partenza(int lunghezza, int x, int y, string direzione){
 
     return true;  
 
+}
+
+void ai::set_memoria(bool x){
+    memoria=x;
+}
+
+void ai::set_colpo_precedente(int x, int y){
+    colpo_precedente[0]=x;
+    colpo_precedente[1]=y;
+}
+
+bool ai::get_memoria(){
+    return memoria;
+}
+
+void ai::aumenta_contatore_colpi(){
+    if(contatore_colpi<4) contatore_colpi+=1;
+    else {
+        contatore_colpi=0;
+        memoria=false;
+    }
 }
