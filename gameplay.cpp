@@ -94,6 +94,8 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
         while(true){
 
 
+
+
             //TURNO GIOCATORE 1
             titolo2();
             cout << "\n\n--------------- Turno di " << nome << " ---------------" << endl;
@@ -113,14 +115,16 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
 
                 //Seguenti 3 linee inserite per bellezza per non far vedere lo stacco nel terminale
                     titolo2();
-                    cout << "\nCasella scelta: " << casella << endl << endl;
                     giocatore2.visualizzazione_nemica();
+                    cout << "\nCasella scelta: " << casella << endl << endl;
+
 
                 cout << "\nCOLPITO!  X" << endl;
 
                 for(int i=0; i<10; i++){
                     giocatore2.nomi_navi[i].controllo_colpito_o_affondato(x_tiro,y_tiro);
                 }
+
 
             }
 
@@ -131,8 +135,9 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
 
                 //Seguenti 3 linee inserite per bellezza per non far vedere lo stacco nel terminale
                     titolo2();
-                    cout << "\nCasella scelta: " << casella << endl << endl;
                     giocatore2.visualizzazione_nemica();
+                    cout << "\nCasella scelta: " << casella << endl << endl;
+
 
                 cout << "\nACQUA: ~     :(" << endl;
             }
@@ -172,8 +177,9 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
 
                 //Seguenti 3 linee inserite per bellezza per non far vedere lo stacco nel terminale
                     titolo2();
-                    cout << "Casella scelta: " << casella << endl << endl;
                     giocatore1.visualizzazione_nemica();
+                    cout << "Casella scelta: " << casella << endl << endl;
+
 
                 cout << "\nCOLPITO!  X" << endl;
 
@@ -191,8 +197,9 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
 
                 //Seguenti 3 linee inserite per bellezza per non far vedere lo stacco nel terminale
                     titolo2();
-                    cout << "Casella scelta: " << casella << endl << endl;
                     giocatore1.visualizzazione_nemica();
+                    cout << "Casella scelta: " << casella << endl << endl;
+
 
                 cout << "\nACQUA: ~     :(" << endl;
             }
@@ -224,6 +231,23 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
     if(numero_giocatori==1){
         giocatore giocatore1(nome);
         ai giocatoreAI(nome2);
+
+
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+    // ******************* SOLO PER PROVA *************** DA TOGLIERE ****************
+
+    //giocatoreAI.posizionamento_navi_AI();
+    //giocatoreAI.visualizzazione_amica();
+
+
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
 
 
         //POSIZIONAMENTO NAVI GIOCATORE 1
@@ -279,19 +303,16 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
                 giocatoreAI.tabella[y_tiro][x_tiro]='X';
                 giocatoreAI.tabella_nemica[y_tiro][x_tiro]='X';
 
-                cout << "\nCOLPITO!  X" << endl;
-
                 //Seguenti 3 linee inserite per bellezza per non far vedere lo stacco nel terminale
                     titolo2();
-                    cout << "\nCasella scelta: " << casella << endl << endl;
                     giocatoreAI.visualizzazione_nemica();
+                    cout << "\nCasella scelta: " << casella << endl << endl;
 
-
+                cout << "\nCOLPITO!  X" << endl;
 
                 for(int i=0; i<10; i++){
                     giocatoreAI.nomi_navi[i].controllo_colpito_o_affondato(x_tiro,y_tiro); //Controllo quale nave e' stata colpita e agisco di conseguenza
                 }
-
 
             }
 
@@ -302,8 +323,9 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
 
                 //Seguenti 3 linee inserite per bellezza per non far vedere lo stacco nel terminale
                     titolo2();
-                    cout << "\nCasella scelta: " << casella << endl << endl;
                     giocatoreAI.visualizzazione_nemica();
+                    cout << "\nCasella scelta: " << casella << endl << endl;
+
 
                 cout << "\nACQUA: ~     :(" << endl;
             }
@@ -326,36 +348,44 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
 
 
             //TURNO GIOCATORE 2
-            giocatoreAI.scelta_casella_da_colpire(x_tiro,y_tiro);
+
+            x_tiro=giocatoreAI.scelta_x_da_colpire();
+            y_tiro=giocatoreAI.scelta_y_da_colpire();
             casella = trasformazione_coordinate_ridotta_inversa(x_tiro,y_tiro);
 
             if(giocatore1.tabella[y_tiro][x_tiro]=='O'){
                 giocatore1.tabella[y_tiro][x_tiro]='X';
                 giocatore1.tabella_nemica[y_tiro][x_tiro]='X';
 
-                //Seguenti 3 linee inserite per bellezza per non far vedere lo stacco nel terminale
-                    titolo2();
-                    cout << "Casella scelta dall'avversario: " << casella << endl << endl;
-                    giocatore1.visualizzazione_amica();
+                giocatoreAI.set_memoria(true);
+                giocatoreAI.set_colpo_precedente(x_tiro,y_tiro);
 
+                //Seguenti 3 linee inserite per bellezza per non far vedere lo stacco nel terminale
+                titolo2();
+                cout << "Casella scelta dall'avversario: " << casella << endl << endl;
+                giocatore1.visualizzazione_amica();
                 cout << "\nCOLPITO!  X" << endl;
 
                 for(int i=0; i<10; i++){
                     giocatore1.nomi_navi[i].controllo_colpito_o_affondato(x_tiro,y_tiro);
+
                 }
+
 
             }
 
-
             else{
+
                 giocatore1.tabella[y_tiro][x_tiro]='~';
                 giocatore1.tabella_nemica[y_tiro][x_tiro]='~';
 
-                //Seguenti 3 linee inserite per bellezza per non far vedere lo stacco nel terminale
-                    titolo2();
-                    cout << "Casella scelta dall'avversario: " << casella << endl << endl;
-                    giocatore1.visualizzazione_amica();
+                if(giocatoreAI.get_memoria()) giocatoreAI.aumenta_contatore_colpi();
 
+
+                //Seguenti 3 linee inserite per bellezza per non far vedere lo stacco nel terminale
+                titolo2();
+                cout << "Casella scelta dall'avversario: " << casella << endl << endl;
+                giocatore1.visualizzazione_amica();
                 cout << "\nACQUA: ~     :(" << endl;
             }
 
@@ -367,6 +397,8 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
                 cout << "IL GIOCATORE " << nome2 << " HA VINTO!!!";
                 break;
             }
+
+
 
             //PASSO TURNO
             passo();

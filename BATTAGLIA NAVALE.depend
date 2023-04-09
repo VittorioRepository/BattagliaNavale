@@ -477,13 +477,13 @@
 	"modalita.h"
 	"scelta_nomi.h"
 
-1680938878 source:c:\users\vitto\documents\github\battaglianavale\nave.cpp
+1680855303 source:c:\users\vitto\documents\github\battaglianavale\nave.cpp
 	"nave.h"
 
 1680870924 source:c:\users\vitto\documents\github\battaglianavale\ai.cpp
 	"ai.h"
 
-1680909124 source:c:\users\vitto\documents\github\battaglianavale\giocatore.cpp
+1680870924 source:c:\users\vitto\documents\github\battaglianavale\giocatore.cpp
 	"giocatore.h"
 
 1680865862 c:\users\vitto\documents\github\battaglianavale\giocatore.h
@@ -500,7 +500,7 @@
 	"funzioni.h"
 	"board.h"
 
-1680938525 source:c:\users\vitto\documents\github\battaglianavale\gameplay.cpp
+1680872688 source:c:\users\vitto\documents\github\battaglianavale\gameplay.cpp
 	"gameplay.h"
 
 1680872688 c:\users\vitto\documents\github\battaglianavale\gameplay.h
@@ -528,5 +528,90 @@
 	"funzioni.h"
 
 1680872538 source:c:\users\vitto\documents\github\battaglianavale\scelta_nomi.cpp
+	"scelta_nomi.h"
+
+1681078855 source:c:\users\vitto\desktop\battaglianavale-main\ai.cpp
+	"ai.h"
+
+1681077413 c:\users\vitto\desktop\battaglianavale-main\ai.h
+	<string>
+	<iostream>
+	"nave.h"
+	"funzioni.h"
+	"board.h"
+	<time.h>
+
+1681077668 c:\users\vitto\desktop\battaglianavale-main\nave.h
+	<string>
+	<iostream>
+	"funzioni.h"
+
+1681077413 c:\users\vitto\desktop\battaglianavale-main\funzioni.h
+	<iostream>
+	<string>
+	"nave.h"
+
+1681077413 c:\users\vitto\desktop\battaglianavale-main\board.h
+	<string>
+	<iostream>
+	"nave.h"
+	"funzioni.h"
+
+1681077413 source:c:\users\vitto\desktop\battaglianavale-main\board.cpp
+	"board.h"
+
+1681077413 source:c:\users\vitto\desktop\battaglianavale-main\funzioni.cpp
+	"funzioni.h"
+
+1681078944 source:c:\users\vitto\desktop\battaglianavale-main\gameplay.cpp
+	"gameplay.h"
+
+1681077685 c:\users\vitto\desktop\battaglianavale-main\gameplay.h
+	<iostream>
+	"funzioni.h"
+	"nave.h"
+	"board.h"
+	"giocatore.h"
+	"ai.h"
+	<string>
+	<limits>
+
+1681077413 c:\users\vitto\desktop\battaglianavale-main\giocatore.h
+	<string>
+	<iostream>
+	"nave.h"
+	"funzioni.h"
+	"board.h"
+
+1681077444 source:c:\users\vitto\desktop\battaglianavale-main\giocatore.cpp
+	"giocatore.h"
+
+1681077700 source:c:\users\vitto\desktop\battaglianavale-main\main.cpp
+	<iostream>
+	<string>
+	<limits>
+	"funzioni.h"
+	"gameplay.h"
+	"modalita.h"
+	"scelta_nomi.h"
+
+1681077413 c:\users\vitto\desktop\battaglianavale-main\modalita.h
+	<iostream>
+	<string>
+	<limits>
+
+1681077413 c:\users\vitto\desktop\battaglianavale-main\scelta_nomi.h
+	<iostream>
+	<string>
+	<limits>
+	"funzioni.h"
+
+1681077413 source:c:\users\vitto\desktop\battaglianavale-main\modalita.cpp
+	"modalita.h"
+
+1681077509 source:c:\users\vitto\desktop\battaglianavale-main\nave.cpp
+	"nave.h"
+
+1681077413 source:c:\users\vitto\desktop\battaglianavale-main\scelta_nomi.cpp
 	"scelta_nomi.h"
 

@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 #include "funzioni.h"
+
 using namespace std;
 
 class nave{
