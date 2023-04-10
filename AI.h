@@ -13,6 +13,8 @@
 
 #include <time.h>
 
+#include <vector>
+
 
 using namespace std;
 
@@ -30,6 +32,8 @@ public:
     bool get_memoria();
     void set_colpo_precedente(int, int);
     void aumenta_contatore_colpi();
+    bool controllo_ripetizioni(string);
+    void aggiungi_mossa_giocata(string);
 
 private:
     bool memoria=false;
@@ -37,6 +41,7 @@ private:
     int spostamenti [2]; // [+1,-1]
     int contatore_colpi=0;
     int direzione_colpo;
+    vector<string> mosse_precedenti;  
 };
 
 

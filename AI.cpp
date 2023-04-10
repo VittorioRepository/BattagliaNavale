@@ -9,16 +9,16 @@ ai::ai(string nome):board(nome){}
 void ai::posizionamento_navi_AI(){
 
     // SETTO LA LUNGHEZZA DELLE NAVI (il costruttore mi dava problemi)
-    nomi_navi[0].set_lunghezza(2);
-    nomi_navi[1].set_lunghezza(2);
-    nomi_navi[2].set_lunghezza(2);
-    nomi_navi[3].set_lunghezza(2);
+    nomi_navi[0].set_lunghezza(6);
+    nomi_navi[1].set_lunghezza(4);
+    nomi_navi[2].set_lunghezza(4);
+    nomi_navi[3].set_lunghezza(3);
     nomi_navi[4].set_lunghezza(3);
     nomi_navi[5].set_lunghezza(3);
-    nomi_navi[6].set_lunghezza(3);
-    nomi_navi[7].set_lunghezza(4);
-    nomi_navi[8].set_lunghezza(4);
-    nomi_navi[9].set_lunghezza(6);
+    nomi_navi[6].set_lunghezza(2);
+    nomi_navi[7].set_lunghezza(2);
+    nomi_navi[8].set_lunghezza(2);
+    nomi_navi[9].set_lunghezza(2);
 
     // AI POSIZIONA LE NAVI COME GIOCATORE (INVECE DI INPUT DA TASTIERA USO RANDOM)
     
@@ -35,7 +35,7 @@ void ai::posizionamento_navi_AI(){
         lunghezza=nomi_navi[i].get_lunghezza();
         x=coordinata_random();
         y=coordinata_random();
-        if(coordinata_random()%2==0) direzione="O";
+        if(rand()%2==0) direzione="O";
         else direzione="V";        
 
         if (direzione=="O"){   //Caso orizzontale
@@ -50,7 +50,7 @@ void ai::posizionamento_navi_AI(){
             }
             else if(casella_partenza(lunghezza,x+1,y+1,direzione)){
                 for(int k=0; k<lunghezza; k++){
-                    tabella[y][x+k]='O';
+                    tabella[y+1][x+1+k]='O';
                 }
                 posizione=trasformazione_coordinate_ridotta_inversa(x+1,y+1).append(direzione);
                 nomi_navi[i].set_posizione(posizione);
@@ -58,7 +58,7 @@ void ai::posizionamento_navi_AI(){
             }
             else if(casella_partenza(lunghezza,x-1,y-1,direzione)){
                 for(int k=0; k<lunghezza; k++){
-                    tabella[y][x+k]='O';   
+                    tabella[y-1][x-1+k]='O';   
                 }
                 posizione=trasformazione_coordinate_ridotta_inversa(x-1,y-1).append(direzione);
                 nomi_navi[i].set_posizione(posizione);
@@ -66,7 +66,7 @@ void ai::posizionamento_navi_AI(){
             }
             else if(casella_partenza(lunghezza,x-1,y+1,direzione)){
                 for(int k=0; k<lunghezza; k++){
-                    tabella[y][x+k]='O';
+                    tabella[y+1][x-1+k]='O';
                 }
                 posizione=trasformazione_coordinate_ridotta_inversa(x-1,y+1).append(direzione);
                 nomi_navi[i].set_posizione(posizione);
@@ -74,7 +74,7 @@ void ai::posizionamento_navi_AI(){
             }
             else if(casella_partenza(lunghezza,x+1,y-1,direzione)){
                 for(int k=0; k<lunghezza; k++){
-                    tabella[y][x+k]='O';
+                    tabella[y-1][x+1+k]='O';
                 }
                 posizione=trasformazione_coordinate_ridotta_inversa(x+1,y-1).append(direzione);
                 nomi_navi[i].set_posizione(posizione);
@@ -97,7 +97,7 @@ void ai::posizionamento_navi_AI(){
             }
             else if(casella_partenza(lunghezza,x+1,y+1,direzione)){
                 for(int k=0; k<lunghezza; k++){
-                    tabella[y+k][x]='O';
+                    tabella[y+1+k][x+1]='O';
                 }
                 posizione=trasformazione_coordinate_ridotta_inversa(x+1,y+1).append(direzione);
                 nomi_navi[i].set_posizione(posizione);
@@ -105,7 +105,7 @@ void ai::posizionamento_navi_AI(){
             }
             else if(casella_partenza(lunghezza,x-1,y-1,direzione)){
                 for(int k=0; k<lunghezza; k++){
-                    tabella[y+k][x]='O';
+                    tabella[y-1+k][x-1]='O';
                 }
                 posizione=trasformazione_coordinate_ridotta_inversa(x-1,y-1).append(direzione);
                 nomi_navi[i].set_posizione(posizione);
@@ -113,7 +113,7 @@ void ai::posizionamento_navi_AI(){
             }
             else if(casella_partenza(lunghezza,x-1,y+1,direzione)){
                 for(int k=0; k<lunghezza; k++){
-                    tabella[y+k][x]='O';
+                    tabella[y+1+k][x-1]='O';
                 }
                 posizione=trasformazione_coordinate_ridotta_inversa(x-1,y+1).append(direzione);
                 nomi_navi[i].set_posizione(posizione);
@@ -121,7 +121,7 @@ void ai::posizionamento_navi_AI(){
             }
             else if(casella_partenza(lunghezza,x+1,y-1,direzione)){
                 for(int k=0; k<lunghezza; k++){
-                    tabella[y+k][x]='O';
+                    tabella[y-1+k][x+1]='O';
                 }
                 posizione=trasformazione_coordinate_ridotta_inversa(x+1,y-1).append(direzione);
                 nomi_navi[i].set_posizione(posizione);
@@ -247,4 +247,16 @@ void ai::aumenta_contatore_colpi(){
         contatore_colpi=0;
         memoria=false;
     }
+}
+
+bool ai::controllo_ripetizioni(string casella){
+    int lunghezza=mosse_precedenti.size();
+    for(int i=0;i<lunghezza;i++){
+        if (mosse_precedenti[i]==casella) return false;
+    }
+    return true;
+}
+
+void ai::aggiungi_mossa_giocata(string casella){
+    mosse_precedenti.push_back(casella);
 }
