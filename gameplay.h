@@ -3,6 +3,7 @@
 
 #include <iostream>
 
+#include "funzioni.h"
 #include "nave.h"
 #include "board.h"
 #include "giocatore.h"
@@ -11,7 +12,7 @@
 #include <string>
 #include <limits>
 
-#include "funzioni.h"
+
 
 using namespace std;
 

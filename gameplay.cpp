@@ -112,16 +112,20 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
             if(giocatore2.tabella[y_tiro][x_tiro]=='O'){
                 giocatore2.tabella[y_tiro][x_tiro]='X';
                 giocatore2.tabella_nemica[y_tiro][x_tiro]='X';
+
+                //Seguenti 3 linee inserite per bellezza per non far vedere lo stacco nel terminale
+                    titolo2();
+                    giocatore2.visualizzazione_nemica();
+                    cout << "\nCasella scelta: " << casella << endl << endl;
+
+
+                cout << "\nCOLPITO!  X" << endl;
+
                 for(int i=0; i<10; i++){
                     giocatore2.nomi_navi[i].controllo_colpito_o_affondato(x_tiro,y_tiro);
                 }
 
-                //Seguenti 3 linee inserite per bellezza per non far vedere lo stacco nel terminale
-                    titolo2();
-                    cout << "\nCasella scelta: " << casella << endl << endl;
-                    giocatore2.visualizzazione_nemica();
 
-                cout << "\nCOLPITO!  X" << endl;
             }
 
 
@@ -131,8 +135,9 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
 
                 //Seguenti 3 linee inserite per bellezza per non far vedere lo stacco nel terminale
                     titolo2();
-                    cout << "\nCasella scelta: " << casella << endl << endl;
                     giocatore2.visualizzazione_nemica();
+                    cout << "\nCasella scelta: " << casella << endl << endl;
+
 
                 cout << "\nACQUA: ~     :(" << endl;
             }
@@ -169,16 +174,20 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
             if(giocatore1.tabella[y_tiro][x_tiro]=='O'){
                 giocatore1.tabella[y_tiro][x_tiro]='X';
                 giocatore1.tabella_nemica[y_tiro][x_tiro]='X';
+
+                //Seguenti 3 linee inserite per bellezza per non far vedere lo stacco nel terminale
+                    titolo2();
+                    giocatore1.visualizzazione_nemica();
+                    cout << "Casella scelta: " << casella << endl << endl;
+
+
+                cout << "\nCOLPITO!  X" << endl;
+
                 for(int i=0; i<10; i++){
                     giocatore1.nomi_navi[i].controllo_colpito_o_affondato(x_tiro,y_tiro);
                 }
 
-                //Seguenti 3 linee inserite per bellezza per non far vedere lo stacco nel terminale
-                    titolo2();
-                    cout << "Casella scelta: " << casella << endl << endl;
-                    giocatore1.visualizzazione_nemica();
 
-                cout << "\nCOLPITO!  X" << endl;
             }
 
 
@@ -188,8 +197,9 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
 
                 //Seguenti 3 linee inserite per bellezza per non far vedere lo stacco nel terminale
                     titolo2();
-                    cout << "Casella scelta: " << casella << endl << endl;
                     giocatore1.visualizzazione_nemica();
+                    cout << "Casella scelta: " << casella << endl << endl;
+
 
                 cout << "\nACQUA: ~     :(" << endl;
             }
@@ -231,6 +241,23 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
     
     // giocatoreAI.posizionamento_navi_AI();
     // giocatoreAI.visualizzazione_amica();
+
+
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+    // ******************* SOLO PER PROVA *************** DA TOGLIERE ****************
+
+    //giocatoreAI.posizionamento_navi_AI();
+    //giocatoreAI.visualizzazione_amica();
 
 
     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -292,16 +319,18 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
             if(giocatoreAI.tabella[y_tiro][x_tiro]=='O'){
                 giocatoreAI.tabella[y_tiro][x_tiro]='X';
                 giocatoreAI.tabella_nemica[y_tiro][x_tiro]='X';
+
+                //Seguenti 3 linee inserite per bellezza per non far vedere lo stacco nel terminale
+                    titolo2();
+                    giocatoreAI.visualizzazione_nemica();
+                    cout << "\nCasella scelta: " << casella << endl << endl;
+
+                cout << "\nCOLPITO!  X" << endl;
+
                 for(int i=0; i<10; i++){
                     giocatoreAI.nomi_navi[i].controllo_colpito_o_affondato(x_tiro,y_tiro); //Controllo quale nave e' stata colpita e agisco di conseguenza
                 }
 
-                //Seguenti 3 linee inserite per bellezza per non far vedere lo stacco nel terminale
-                    titolo2();
-                    cout << "\nCasella scelta: " << casella << endl << endl;
-                    giocatoreAI.visualizzazione_nemica();
-
-                cout << "\nCOLPITO!  X" << endl;
             }
 
 
@@ -311,8 +340,9 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
 
                 //Seguenti 3 linee inserite per bellezza per non far vedere lo stacco nel terminale
                     titolo2();
-                    cout << "\nCasella scelta: " << casella << endl << endl;
                     giocatoreAI.visualizzazione_nemica();
+                    cout << "\nCasella scelta: " << casella << endl << endl;
+
 
                 cout << "\nACQUA: ~     :(" << endl;
             }
@@ -361,6 +391,13 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
                 cout << "Casella scelta dall'avversario: " << casella << endl << endl;
                 giocatore1.visualizzazione_amica();
                 cout << "\nCOLPITO!  X" << endl;
+
+                for(int i=0; i<10; i++){
+                    giocatore1.nomi_navi[i].controllo_colpito_o_affondato(x_tiro,y_tiro);
+
+                }
+
+
             }
 
             else{  

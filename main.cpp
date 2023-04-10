@@ -12,6 +12,8 @@
 #include "scelta_nomi.h"
 
 
+
+
 using namespace std;
 
 int main()
