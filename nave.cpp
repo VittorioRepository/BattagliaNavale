@@ -58,7 +58,7 @@ void nave::set_posizione(string posizione){
 void nave::set_stato(){
     counter++;
     if(counter==lunghezza_nave){
-        cout << "\n" << nome_nave << " e' stata affondata!!\n";
+        cout << nome_nave << " e' stata affondata!!\n";
         stato=1;
     }
 }

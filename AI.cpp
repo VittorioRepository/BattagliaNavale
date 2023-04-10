@@ -9,16 +9,16 @@ ai::ai(string nome):board(nome){}
 void ai::posizionamento_navi_AI(){
 
     // SETTO LA LUNGHEZZA DELLE NAVI (il costruttore mi dava problemi)
-    nomi_navi[0].set_lunghezza(6);
-    nomi_navi[1].set_lunghezza(4);
-    nomi_navi[2].set_lunghezza(4);
-    nomi_navi[3].set_lunghezza(3);
+    nomi_navi[0].set_lunghezza(2);
+    nomi_navi[1].set_lunghezza(2);
+    nomi_navi[2].set_lunghezza(2);
+    nomi_navi[3].set_lunghezza(2);
     nomi_navi[4].set_lunghezza(3);
     nomi_navi[5].set_lunghezza(3);
-    nomi_navi[6].set_lunghezza(2);
-    nomi_navi[7].set_lunghezza(2);
-    nomi_navi[8].set_lunghezza(2);
-    nomi_navi[9].set_lunghezza(2);
+    nomi_navi[6].set_lunghezza(3);
+    nomi_navi[7].set_lunghezza(4);
+    nomi_navi[8].set_lunghezza(4);
+    nomi_navi[9].set_lunghezza(6);
 
     // AI POSIZIONA LE NAVI COME GIOCATORE (INVECE DI INPUT DA TASTIERA USO RANDOM)
     
