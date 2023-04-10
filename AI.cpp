@@ -35,7 +35,7 @@ void ai::posizionamento_navi_AI(){
         lunghezza=nomi_navi[i].get_lunghezza();
         x=coordinata_random();
         y=coordinata_random();
-        if(coordinata_random()%2==0) direzione="O";
+        if(rand()%2==0) direzione="O";
         else direzione="V";
 
         if (direzione=="O"){   //Caso orizzontale
@@ -84,7 +84,7 @@ void ai::posizionamento_navi_AI(){
         }
 
 
-        else {  //Caso verticale
+        else if(direzione=="V"){  //Caso verticale
 
 
             if(casella_partenza(lunghezza,x,y,direzione)){
@@ -130,6 +130,7 @@ void ai::posizionamento_navi_AI(){
             else ;
 
         }
+        else ;
 
     }
 
@@ -198,13 +199,13 @@ bool ai::casella_partenza(int lunghezza, int x, int y, string direzione){
 
 
             }
-        if (x+lunghezza>10){ //la nave esce dalla board
+        else if (x+lunghezza>10){ //la nave esce dalla board
 
             return false;
         }
     }
 
-    if (direzione=="V"){
+    else if (direzione=="V"){
 
         if(y+lunghezza<11){ //controllo dimensioni board
                 for(int k=0; k<lunghezza; k++){
@@ -217,7 +218,7 @@ bool ai::casella_partenza(int lunghezza, int x, int y, string direzione){
 
 
             }
-        if (y+lunghezza>10){ //la nave esce dalla board
+        else if (y+lunghezza>10){ //la nave esce dalla board
 
             return false;
         }

@@ -239,8 +239,8 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
 
     // ******************* SOLO PER PROVA *************** DA TOGLIERE ****************
 
-    //giocatoreAI.posizionamento_navi_AI();
-    //giocatoreAI.visualizzazione_amica();
+    giocatoreAI.posizionamento_navi_AI();
+    giocatoreAI.visualizzazione_amica();
 
 
     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
