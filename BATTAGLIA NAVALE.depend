@@ -446,10 +446,10 @@
 	<string>
 	"nave.h"
 
-1681077413 source:c:\users\vitto\documents\github\battaglianavale\board.cpp
+1681160414 source:c:\users\vitto\documents\github\battaglianavale\board.cpp
 	"board.h"
 
-1681077413 c:\users\vitto\documents\github\battaglianavale\board.h
+1681161116 c:\users\vitto\documents\github\battaglianavale\board.h
 	<string>
 	<iostream>
 	"nave.h"
@@ -468,7 +468,7 @@
 1681077413 source:c:\users\vitto\documents\github\battaglianavale\funzioni.cpp
 	"funzioni.h"
 
-1681077700 source:c:\users\vitto\documents\github\battaglianavale\main.cpp
+1681160729 source:c:\users\vitto\documents\github\battaglianavale\main.cpp
 	<iostream>
 	<string>
 	<limits>
@@ -480,7 +480,7 @@
 1681077509 source:c:\users\vitto\documents\github\battaglianavale\nave.cpp
 	"nave.h"
 
-1681155210 source:c:\users\vitto\documents\github\battaglianavale\ai.cpp
+1681159885 source:c:\users\vitto\documents\github\battaglianavale\ai.cpp
 	"ai.h"
 
 1681077444 source:c:\users\vitto\documents\github\battaglianavale\giocatore.cpp
@@ -493,7 +493,7 @@
 	"funzioni.h"
 	"board.h"
 
-1681077413 c:\users\vitto\documents\github\battaglianavale\ai.h
+1681159885 c:\users\vitto\documents\github\battaglianavale\ai.h
 	<string>
 	<iostream>
 	"nave.h"
@@ -501,10 +501,10 @@
 	"board.h"
 	<time.h>
 
-1681154242 source:c:\users\vitto\documents\github\battaglianavale\gameplay.cpp
+1681161116 source:c:\users\vitto\documents\github\battaglianavale\gameplay.cpp
 	"gameplay.h"
 
-1681077685 c:\users\vitto\documents\github\battaglianavale\gameplay.h
+1681160738 c:\users\vitto\documents\github\battaglianavale\gameplay.h
 	<iostream>
 	"funzioni.h"
 	"nave.h"
@@ -615,4 +615,7 @@
 
 1681077413 source:c:\users\vitto\desktop\battaglianavale-main\scelta_nomi.cpp
 	"scelta_nomi.h"
+
+1681160414 c:\users\vitto\documents\github\battaglianavale\board.cpp
+	"board.h"
 

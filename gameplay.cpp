@@ -233,6 +233,7 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
         ai giocatoreAI(nome2);
 
 
+
     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -283,6 +284,7 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
 
 
         //LOOP TURNI
+        int numero_turno=0;
         while(true){
 
 
@@ -347,10 +349,12 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
 
 
 
-            //TURNO GIOCATORE 2
+            //TURNO GIOCATORE 2: AI
+
 
             x_tiro=giocatoreAI.scelta_x_da_colpire();
             y_tiro=giocatoreAI.scelta_y_da_colpire();
+
             casella = trasformazione_coordinate_ridotta_inversa(x_tiro,y_tiro);
 
             if(giocatore1.tabella[y_tiro][x_tiro]=='O'){
@@ -399,9 +403,10 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
             }
 
 
-
             //PASSO TURNO
             passo();
+
+            numero_turno++;
 
 
         }

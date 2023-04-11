@@ -31,6 +31,7 @@ public:
     void set_colpo_precedente(int, int);
     void aumenta_contatore_colpi();
 
+
 private:
     bool memoria=false;
     int colpo_precedente [2]; // [x,y]

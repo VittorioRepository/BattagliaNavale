@@ -8,6 +8,7 @@ board::board(){
     set_board();
 }
 
+
 board::board(string nome){
     nome_giocatore = nome;
     set_board();
@@ -25,9 +26,6 @@ void board::set_board(){
         }
     }
 }
-
-
-
 
 
 
@@ -91,6 +89,8 @@ bool board::controllo_contatore_globale(){
     if(contatore_globale<10) return false;
     else return true;
 }
+
+
 
 
 
