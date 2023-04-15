@@ -185,7 +185,7 @@ int ai::coordinata_random(){
 
 bool ai::casella_partenza(int lunghezza, int x, int y, string direzione){
 
-    if (direzione=="o"){
+    if (direzione=="O"){
 
         if(x+lunghezza<11){ //controllo dimensioni board
                 for(int k=0; k<lunghezza; k++){
@@ -204,7 +204,7 @@ bool ai::casella_partenza(int lunghezza, int x, int y, string direzione){
         }
     }
 
-    if (direzione=="v"){
+    if (direzione=="V"){
 
         if(y+lunghezza<11){ //controllo dimensioni board
                 for(int k=0; k<lunghezza; k++){
