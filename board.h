@@ -23,8 +23,15 @@ public:
     void visualizzazione_nemica();
     bool controllo_contatore_globale();
 
+    int controllo_numero_navi_posizionate();
+    char get_casella_tabella(int, int);
+    void set_casella_tabella_amica(int, int, char);
+    void set_casella_tabella_nemica(int, int, char);
+    bool controllo_giocate_precedenti(int, int, int);
+    void set_giocate_precedenti(int, int, int);
 
-
+    string get_nome_giocatore();
+    void set_nome_giocatore(string);
 
     nave d2_1;
     nave d2_2;
@@ -39,17 +46,21 @@ public:
 
     nave nomi_navi[10] = {d2_1, d2_2, d2_3, d2_4, d3_1, d3_2, d3_3, d4_1, d4_2, d6_1};
 
+
+
+
+protected:
+    int giocate_precedenti[100][2];
     char tabella[10][10];
     char tabella_nemica[10][10];
-
+    int contatore_globale=0;
     string nome_giocatore;
-
 
 
 private:
     const int num_rows = 10;
     const int num_cols = 10;
-    int contatore_globale=0;
+
 
 
 

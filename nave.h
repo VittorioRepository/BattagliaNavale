@@ -11,6 +11,7 @@ class nave{
 
 public:
     nave();
+    nave(int);
 
     void set_lunghezza(int);
     int get_lunghezza();

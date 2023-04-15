@@ -3,6 +3,10 @@
 
 nave::nave(){}
 
+nave::nave(int l){
+    set_lunghezza(l);
+}
+
 
 
 void nave::set_lunghezza(int lunghezza){

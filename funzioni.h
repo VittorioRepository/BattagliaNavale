@@ -19,6 +19,7 @@ void titolo2();
 
 void passo();
 
-// void randomizzatore();
+void passo2();
+
 
 #endif // FUNZIONI_H_INCLUDED

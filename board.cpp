@@ -9,6 +9,7 @@ board::board(){
 }
 
 
+
 board::board(string nome){
     nome_giocatore = nome;
     set_board();
@@ -26,6 +27,8 @@ void board::set_board(){
         }
     }
 }
+
+
 
 
 
@@ -91,6 +94,58 @@ bool board::controllo_contatore_globale(){
 }
 
 
+int board::controllo_numero_navi_posizionate(){
+    int numero_navi_posizionate = 0;
+
+    for(int i=0; i<10; i++){
+        for(int j=0; j<10; j++){
+            if(tabella[i][j]=='O') numero_navi_posizionate++;
+        }
+    }
+    return numero_navi_posizionate;
+}
+
+
+
+char board::get_casella_tabella(int x, int y){
+    return tabella[y][x];
+}
+
+
+void board::set_casella_tabella_amica(int x, int y, char c){
+    tabella[y][x]=c;
+}
+
+void board::set_casella_tabella_nemica(int x, int y, char c){
+    tabella_nemica[y][x]=c;
+}
+
+void board::set_giocate_precedenti(int numero_turno, int x, int y){ //numero_turno dovra' partire da 0
+    giocate_precedenti[numero_turno][0]=x;
+    giocate_precedenti[numero_turno][1]=y;
+}
+
+bool board::controllo_giocate_precedenti(int numero_turno, int x, int y){ //numero_turno dovra' partire da 0
+    if(numero_turno==0) return false;
+    else{
+        for(int j=0; j<numero_turno; j++){
+            if(giocate_precedenti[j][0]==x and giocate_precedenti[j][1]==y) return true;
+        }
+    }
+    return false;
+}
+
+
+
+string board::get_nome_giocatore(){
+    return nome_giocatore;
+}
+
+
+
+void board::set_nome_giocatore(string name){
+    nome_giocatore=name;
+}
 
 
 

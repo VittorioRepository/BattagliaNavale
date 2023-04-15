@@ -52,5 +52,12 @@ void passo(){
     system("cls");
 }
 
+void passo2(){
+    cout << "\nInserisci un carattere qualunque per passare al prossimo turno: ";
+    string  passo_str;
+    cin >> passo_str;
+    system("cls");
+}
+
 
 

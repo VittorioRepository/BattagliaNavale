@@ -619,3 +619,89 @@
 1681160414 c:\users\vitto\documents\github\battaglianavale\board.cpp
 	"board.h"
 
+1681581838 source:c:\users\vitto\onedrive\documenti\github\battaglianavale\ai.cpp
+	"ai.h"
+
+1681581838 c:\users\vitto\onedrive\documenti\github\battaglianavale\ai.h
+	<string>
+	<iostream>
+	"nave.h"
+	"funzioni.h"
+	"board.h"
+	<time.h>
+
+1681582646 c:\users\vitto\onedrive\documenti\github\battaglianavale\nave.h
+	<string>
+	<iostream>
+	"funzioni.h"
+
+1681585365 c:\users\vitto\onedrive\documenti\github\battaglianavale\funzioni.h
+	<iostream>
+	<string>
+	"nave.h"
+
+1681586320 c:\users\vitto\onedrive\documenti\github\battaglianavale\board.h
+	<string>
+	<iostream>
+	"nave.h"
+	"funzioni.h"
+
+1681586320 source:c:\users\vitto\onedrive\documenti\github\battaglianavale\board.cpp
+	"board.h"
+
+1681585365 source:c:\users\vitto\onedrive\documenti\github\battaglianavale\funzioni.cpp
+	"funzioni.h"
+
+1681587710 source:c:\users\vitto\onedrive\documenti\github\battaglianavale\gameplay.cpp
+	"gameplay.h"
+	<stdlib.h>
+
+1681579519 c:\users\vitto\onedrive\documenti\github\battaglianavale\gameplay.h
+	<iostream>
+	"funzioni.h"
+	"nave.h"
+	"board.h"
+	"giocatore.h"
+	"ai.h"
+	<string>
+	<limits>
+
+1681584159 c:\users\vitto\onedrive\documenti\github\battaglianavale\giocatore.h
+	<string>
+	<iostream>
+	"nave.h"
+	"funzioni.h"
+	"board.h"
+
+1681584159 source:c:\users\vitto\onedrive\documenti\github\battaglianavale\giocatore.cpp
+	"giocatore.h"
+
+1681579519 source:c:\users\vitto\onedrive\documenti\github\battaglianavale\main.cpp
+	<iostream>
+	<string>
+	<limits>
+	"funzioni.h"
+	"gameplay.h"
+	"modalita.h"
+	"scelta_nomi.h"
+
+1681579519 c:\users\vitto\onedrive\documenti\github\battaglianavale\modalita.h
+	<iostream>
+	<string>
+	<limits>
+
+1681579519 c:\users\vitto\onedrive\documenti\github\battaglianavale\scelta_nomi.h
+	<iostream>
+	<string>
+	<limits>
+	"funzioni.h"
+
+1681579519 source:c:\users\vitto\onedrive\documenti\github\battaglianavale\modalita.cpp
+	"modalita.h"
+
+1681582646 source:c:\users\vitto\onedrive\documenti\github\battaglianavale\nave.cpp
+	"nave.h"
+
+1681579519 source:c:\users\vitto\onedrive\documenti\github\battaglianavale\scelta_nomi.cpp
+	"scelta_nomi.h"
+

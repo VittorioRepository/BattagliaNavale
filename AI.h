@@ -32,6 +32,7 @@ public:
     void aumenta_contatore_colpi();
 
 
+
 private:
     bool memoria=false;
     int colpo_precedente [2]; // [x,y]
