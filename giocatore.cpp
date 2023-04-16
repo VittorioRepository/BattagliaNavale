@@ -106,15 +106,15 @@ void giocatore::posizionamento_navi_giocatore(){
 
 
 
-bool giocatore::controllo_giocate_precedenti(int numero_turno, int x, int y){ //numero_turno dovra' partire da 0
-    if(numero_turno==0) return false;
-    else{
-        for(int j=0; j<numero_turno; j++){
-            if(giocate_precedenti[j][0]==x and giocate_precedenti[j][1]==y){
-                cout << "\n Hai già colpito questa casella! Prova con un'altra!";
-                return true;
-            }
+bool giocatore::controllo_ripetizioni(string casella){
+    int lunghezza=mosse_precedenti.size();
+    for(int i=0;i<lunghezza;i++){
+        if (mosse_precedenti[i]==casella){
+            cout << "\n Hai già colpito questa casella! Prova con un'altra!";
+            return false;
         }
     }
-    return false;
+    return true;
 }
+
+

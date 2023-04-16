@@ -11,7 +11,9 @@
 
 #include "board.h"
 
-#include <time.h>
+
+
+
 
 
 using namespace std;
@@ -33,12 +35,14 @@ public:
 
 
 
+
 private:
     bool memoria=false;
     int colpo_precedente [2]; // [x,y]
     int spostamenti [2]; // [+1,-1]
     int contatore_colpi=0;
     int direzione_colpo;
+
 };
 
 

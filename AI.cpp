@@ -190,7 +190,7 @@ bool ai::casella_partenza(int lunghezza, int x, int y, string direzione){
 
         if(x+lunghezza<11){ //controllo dimensioni board
                 for(int k=0; k<lunghezza; k++){
-                    if(tabella[y][x+k]=='O'){ //controllo se e' gia' presente una nave
+                    if(tabella[y][x+k]=='O'){ //controllo se � gia' presente una nave
 
                         return false; //fermo il ciclo
 
@@ -209,7 +209,7 @@ bool ai::casella_partenza(int lunghezza, int x, int y, string direzione){
 
         if(y+lunghezza<11){ //controllo dimensioni board
                 for(int k=0; k<lunghezza; k++){
-                    if(tabella[y+k][x]=='O'){ //controllo se e' gia' presente una nave
+                    if(tabella[y+k][x]=='O'){ //controllo se � gia' presente una nave
 
                         return false; //fermo il ciclo
 
@@ -249,8 +249,5 @@ void ai::aumenta_contatore_colpi(){
         memoria=false;
     }
 }
-
-
-
 
 

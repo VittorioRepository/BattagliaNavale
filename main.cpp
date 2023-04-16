@@ -11,7 +11,7 @@
 
 #include "scelta_nomi.h"
 
-
+#include <time.h>
 
 
 

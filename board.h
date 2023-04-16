@@ -5,6 +5,8 @@
 
 #include <iostream>
 
+#include <vector>
+
 #include "nave.h"
 
 #include "funzioni.h"
@@ -27,8 +29,9 @@ public:
     char get_casella_tabella(int, int);
     void set_casella_tabella_amica(int, int, char);
     void set_casella_tabella_nemica(int, int, char);
-    bool controllo_giocate_precedenti(int, int, int);
-    void set_giocate_precedenti(int, int, int);
+
+    bool controllo_ripetizioni(string);
+    void aggiungi_mossa_giocata(string);
 
     string get_nome_giocatore();
     void set_nome_giocatore(string);
@@ -50,11 +53,12 @@ public:
 
 
 protected:
-    int giocate_precedenti[100][2];
     char tabella[10][10];
     char tabella_nemica[10][10];
     int contatore_globale=0;
     string nome_giocatore;
+
+    vector<string> mosse_precedenti;
 
 
 private:

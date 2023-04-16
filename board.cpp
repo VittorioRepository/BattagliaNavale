@@ -120,22 +120,6 @@ void board::set_casella_tabella_nemica(int x, int y, char c){
     tabella_nemica[y][x]=c;
 }
 
-void board::set_giocate_precedenti(int numero_turno, int x, int y){ //numero_turno dovra' partire da 0
-    giocate_precedenti[numero_turno][0]=x;
-    giocate_precedenti[numero_turno][1]=y;
-}
-
-bool board::controllo_giocate_precedenti(int numero_turno, int x, int y){ //numero_turno dovra' partire da 0
-    if(numero_turno==0) return false;
-    else{
-        for(int j=0; j<numero_turno; j++){
-            if(giocate_precedenti[j][0]==x and giocate_precedenti[j][1]==y) return true;
-        }
-    }
-    return false;
-}
-
-
 
 string board::get_nome_giocatore(){
     return nome_giocatore;
@@ -148,5 +132,16 @@ void board::set_nome_giocatore(string name){
 }
 
 
+bool board::controllo_ripetizioni(string casella){
+    int lunghezza=mosse_precedenti.size();
+    for(int i=0;i<lunghezza;i++){
+        if (mosse_precedenti[i]==casella) return false;
+    }
+    return true;
+}
+
+void board::aggiungi_mossa_giocata(string casella){
+    mosse_precedenti.push_back(casella);
+}
 
 

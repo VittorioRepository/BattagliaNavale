@@ -1,5 +1,6 @@
 #include "gameplay.h"
 #include <stdlib.h>
+#include <time.h>
 
 void gameplay_introduzione(int & numero_giocatori, string &nome, string &nome2){
     system("cls");
@@ -120,10 +121,10 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
             do{
                 cout << "\nInserisci casella: ";
                 cin >> casella;
-                trasformazione_coordinate_ridotta(casella,x_tiro,y_tiro); //trasformazione da "A7" a (x,y)
-            }while(giocatore1.controllo_giocate_precedenti(numero_turno, x_tiro, y_tiro));
+            }while(!giocatore1.controllo_ripetizioni(casella));
 
-            giocatore1.set_giocate_precedenti(numero_turno, x_tiro, y_tiro);
+            giocatore1.aggiungi_mossa_giocata(casella);
+            trasformazione_coordinate_ridotta(casella,x_tiro,y_tiro); //trasformazione da "A7" a (x,y)
 
 
             system("cls");
@@ -188,10 +189,10 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
             do{
                 cout << "\nInserisci casella: ";
                 cin >> casella;
-                trasformazione_coordinate_ridotta(casella,x_tiro,y_tiro); //trasformazione da "A7" a (x,y)
-            }while(giocatore2.controllo_giocate_precedenti(numero_turno, x_tiro, y_tiro));
+            }while(!giocatore2.controllo_ripetizioni(casella));
 
-            giocatore2.set_giocate_precedenti(numero_turno, x_tiro, y_tiro);
+            giocatore2.aggiungi_mossa_giocata(casella);
+            trasformazione_coordinate_ridotta(casella,x_tiro,y_tiro); //trasformazione da "A7" a (x,y)
 
             system("cls");
 
@@ -251,48 +252,50 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
     //GAMEPLAY 1 GIOCATORE CONTRO AI
 
     if(numero_giocatori==1){
+
+        giocatore giocatore1(nome);
+        ai giocatoreAI(nome2);
+
+
+
+        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+        // ******************* SOLO PER PROVA *************** DA TOGLIERE ****************
+
+        do{
+            giocatoreAI.set_board();
+            giocatoreAI.posizionamento_navi_AI();
+        }while(giocatoreAI.controllo_numero_navi_posizionate()!=31);
+
+        giocatoreAI.visualizzazione_amica();
+
+
+        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+
+        //POSIZIONAMENTO NAVI GIOCATORE 1
+
+        giocatore1.posizionamento_navi_giocatore();
+
+        //VISUALIZZAZIONE NAVI POSIZIONATE GIOCATORE 1
+        titolo2();
+        cout << "\nEcco qua tutte le tue navi!\n";
+        giocatore1.visualizzazione_amica();
+
+        //POSIZIONAMENTO NAVI GIOCATORE 2
+        do{
+            giocatoreAI.set_board();
+            giocatoreAI.posizionamento_navi_AI();
+        }while(giocatoreAI.controllo_numero_navi_posizionate()!=31);
+
+
         if(a==0){
-            giocatore giocatore1(nome);
-            ai giocatoreAI(nome2);
-
-
-
-            // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-            // ******************* SOLO PER PROVA *************** DA TOGLIERE ****************
-
-            do{
-                giocatoreAI.set_board();
-                giocatoreAI.posizionamento_navi_AI();
-            }while(giocatoreAI.controllo_numero_navi_posizionate()!=31);
-
-            giocatoreAI.visualizzazione_amica();
-
-
-            // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-
-
-
-            //POSIZIONAMENTO NAVI GIOCATORE 1
-
-            giocatore1.posizionamento_navi_giocatore();
-
-            //VISUALIZZAZIONE NAVI POSIZIONATE GIOCATORE 1
-            titolo2();
-            cout << "\nEcco qua tutte le tue navi!\n";
-            giocatore1.visualizzazione_amica();
-
-            //POSIZIONAMENTO NAVI GIOCATORE 2
-            do{
-                giocatoreAI.set_board();
-                giocatoreAI.posizionamento_navi_AI();
-            }while(giocatoreAI.controllo_numero_navi_posizionate()!=31);
-
 
             //INIZIO GIOCO
 
@@ -324,10 +327,10 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
                 do{
                     cout << "\nInserisci casella: ";
                     cin >> casella;
-                    trasformazione_coordinate_ridotta(casella,x_tiro,y_tiro); //trasformazione da "A7" a (x,y)
-                }while(giocatore1.controllo_giocate_precedenti(numero_turno, x_tiro, y_tiro));
+                }while(!giocatore1.controllo_ripetizioni(casella));
 
-                giocatore1.set_giocate_precedenti(numero_turno, x_tiro, y_tiro);
+                giocatore1.aggiungi_mossa_giocata(casella);
+                trasformazione_coordinate_ridotta(casella,x_tiro,y_tiro); //trasformazione da "A7" a (x,y)
 
                 system("cls");
 
@@ -381,14 +384,14 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
 
                 //TURNO GIOCATORE 2: AI
 
+
                 do{
                     x_tiro=giocatoreAI.scelta_x_da_colpire();
                     y_tiro=giocatoreAI.scelta_y_da_colpire();
-                }while(giocatore1.controllo_giocate_precedenti(numero_turno, x_tiro, y_tiro));
+                    casella = trasformazione_coordinate_ridotta_inversa(x_tiro,y_tiro);
+                }while(!giocatoreAI.controllo_ripetizioni(casella));
 
-                giocatoreAI.set_giocate_precedenti(numero_turno, x_tiro, y_tiro);
-
-                casella = trasformazione_coordinate_ridotta_inversa(x_tiro,y_tiro);
+                giocatoreAI.aggiungi_mossa_giocata(casella);
 
                 if(giocatore1.get_casella_tabella(x_tiro,y_tiro)=='O'){
                     giocatore1.set_casella_tabella_amica(x_tiro,y_tiro,'X');
@@ -448,47 +451,6 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
 
 
         else if (a==1){
-            giocatore giocatore1(nome);
-            ai giocatoreAI(nome2);
-
-
-
-            // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-            // ******************* SOLO PER PROVA *************** DA TOGLIERE ****************
-
-            do{
-                giocatoreAI.set_board();
-                giocatoreAI.posizionamento_navi_AI();
-            }while(giocatoreAI.controllo_numero_navi_posizionate()!=31);
-
-            giocatoreAI.visualizzazione_amica();
-
-
-            // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-
-
-
-            //POSIZIONAMENTO NAVI GIOCATORE 1
-
-            giocatore1.posizionamento_navi_giocatore();
-
-            //VISUALIZZAZIONE NAVI POSIZIONATE GIOCATORE 1
-            titolo2();
-            cout << "\nEcco qua tutte le tue navi!\n";
-            giocatore1.visualizzazione_amica();
-
-            //POSIZIONAMENTO NAVI GIOCATORE 2
-            do{
-                giocatoreAI.set_board();
-                giocatoreAI.posizionamento_navi_AI();
-            }while(giocatoreAI.controllo_numero_navi_posizionate()!=31);
-
 
             //INIZIO GIOCO
 
@@ -514,11 +476,11 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
                 do{
                     x_tiro=giocatoreAI.scelta_x_da_colpire();
                     y_tiro=giocatoreAI.scelta_y_da_colpire();
-                }while(giocatore1.controllo_giocate_precedenti(numero_turno, x_tiro, y_tiro));
+                    casella = trasformazione_coordinate_ridotta_inversa(x_tiro,y_tiro);
+                }while(!giocatoreAI.controllo_ripetizioni(casella));
 
-                giocatoreAI.set_giocate_precedenti(numero_turno, x_tiro, y_tiro);
+                giocatoreAI.aggiungi_mossa_giocata(casella);
 
-                casella = trasformazione_coordinate_ridotta_inversa(x_tiro,y_tiro);
 
                 if(giocatore1.get_casella_tabella(x_tiro,y_tiro)=='O'){
                     giocatore1.set_casella_tabella_amica(x_tiro,y_tiro,'X');
@@ -575,13 +537,15 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
                 giocatore1.visualizzazione_amica();
                 giocatoreAI.visualizzazione_nemica();
 
+
+
                 do{
                     cout << "\nInserisci casella: ";
                     cin >> casella;
-                    trasformazione_coordinate_ridotta(casella,x_tiro,y_tiro); //trasformazione da "A7" a (x,y)
-                }while(giocatore1.controllo_giocate_precedenti(numero_turno, x_tiro, y_tiro));
+                }while(!giocatore1.controllo_ripetizioni(casella));
 
-                giocatore1.set_giocate_precedenti(numero_turno, x_tiro, y_tiro);
+                giocatore1.aggiungi_mossa_giocata(casella);
+                trasformazione_coordinate_ridotta(casella,x_tiro,y_tiro); //trasformazione da "A7" a (x,y)
 
                 system("cls");
 

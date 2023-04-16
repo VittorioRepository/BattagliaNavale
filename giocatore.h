@@ -19,7 +19,7 @@ public:
     giocatore();
     giocatore(string);
     void posizionamento_navi_giocatore();
-    bool controllo_giocate_precedenti(int, int, int);
+    bool controllo_ripetizioni(string);
 
 };
 
