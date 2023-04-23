@@ -44,7 +44,6 @@ void gameplay_introduzione(int & numero_giocatori, string &nome, string &nome2){
 
 void gameplay(int &numero_giocatori, string & nome, string & nome2){
 
-    int numero_turno=0;
     string passo_str;
     srand(time(NULL));     //COMPLETARE PER RANDOMIZZARE CHI COMINCIA LA PARTITA!!
     int a=rand()%2;
@@ -239,9 +238,8 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
             }
 
             //PASSO TURNO
-            passo();
+            passo2();
 
-            numero_turno++;
         }
 
     }
@@ -264,12 +262,12 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
 
         // ******************* SOLO PER PROVA *************** DA TOGLIERE ****************
 
-        do{
-            giocatoreAI.set_board();
-            giocatoreAI.posizionamento_navi_AI();
-        }while(giocatoreAI.controllo_numero_navi_posizionate()!=31);
+        //do{
+        //    giocatoreAI.set_board();
+        //    giocatoreAI.posizionamento_navi_AI();
+        //}while(giocatoreAI.controllo_numero_navi_posizionate()!=31);
 
-        giocatoreAI.visualizzazione_amica();
+        //giocatoreAI.visualizzazione_amica();
 
 
         // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -299,7 +297,7 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
 
             //INIZIO GIOCO
 
-            cout << "IL GIOCO PUO' COMINCIARE!!" << endl;
+            cout << "\nIL GIOCO PUO' COMINCIARE!!" << endl;
 
             cout << "\nGiochera' per primo: " << giocatore1.get_nome_giocatore() << "\n\nInserisci un carattere qualunque per cominciare: ";
             cin >> passo_str;
@@ -319,7 +317,7 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
 
                 //TURNO GIOCATORE 1
                 titolo2();
-                cout << "\n\n--------------- Turno di " << nome << " ---------------" << endl;
+                cout << "\n\n--------------- Turno di " << giocatore1.get_nome_giocatore() << " ---------------" << endl;
                 cout << "Puoi scegliere che casella avversaria colpire." << endl;
                 giocatore1.visualizzazione_amica();
                 giocatoreAI.visualizzazione_nemica();
@@ -367,10 +365,10 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
 
                 check = giocatoreAI.controllo_contatore_globale();
                 if(check==true){
-                    cout << "\n\nIL GIOCATORE " << nome2 << " HA VINTO!!!";
+                    cout << "\n\nIL GIOCATORE " << giocatore1.get_nome_giocatore() << " HA VINTO!!!";
                     giocatore1.visualizzazione_amica();
                     giocatoreAI.visualizzazione_amica();
-                    cout << "IL GIOCATORE " << nome2 << " HA VINTO!!!";
+                    cout << "\nIL GIOCATORE " << giocatore1.get_nome_giocatore() << " HA VINTO!!!";
                     break;
                 }
 
@@ -402,8 +400,8 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
 
                     //Seguenti 3 linee inserite per bellezza per non far vedere lo stacco nel terminale
                     titolo2();
-                    cout << "Casella scelta dall'avversario: " << casella << endl << endl;
                     giocatore1.visualizzazione_amica();
+                    cout << "\nCasella scelta dall'avversario: " << casella << endl << endl;
                     cout << "\nCOLPITO!  X" << endl;
 
                     for(int i=0; i<10; i++){
@@ -423,25 +421,23 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
 
                     //Seguenti 3 linee inserite per bellezza per non far vedere lo stacco nel terminale
                     titolo2();
-                    cout << "Casella scelta dall'avversario: " << casella << endl << endl;
                     giocatore1.visualizzazione_amica();
+                    cout << "Casella scelta dall'avversario: " << casella << endl;
                     cout << "\nACQUA: ~     :(" << endl;
                 }
 
                 check = giocatore1.controllo_contatore_globale();
                 if(check==true){
-                    cout << "\n\nIL GIOCATORE " << nome2 << " HA VINTO!!!";
+                    cout << "\n\nIL GIOCATORE " << giocatoreAI.get_nome_giocatore() << " HA VINTO!!!";
                     giocatore1.visualizzazione_amica();
                     giocatoreAI.visualizzazione_amica();
-                    cout << "IL GIOCATORE " << nome2 << " HA VINTO!!!";
+                    cout << "IL GIOCATORE " << giocatoreAI.get_nome_giocatore() << " HA VINTO!!!";
                     break;
                 }
 
 
                 //PASSO TURNO
                 passo2();
-
-                numero_turno++;
 
 
             }
@@ -454,7 +450,7 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
 
             //INIZIO GIOCO
 
-            cout << "IL GIOCO PUO' COMINCIARE!!" << endl;
+            cout << "\nIL GIOCO PUO' COMINCIARE!!" << endl;
 
             cout << "\nGiochera' per primo l' AI:\n\nInserisci un carattere qualunque per cominciare: ";
             cin >> passo_str;
@@ -463,8 +459,6 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
             string casella;
             int x_tiro,y_tiro;
             bool check;
-
-
 
 
 
@@ -491,8 +485,8 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
 
                     //Seguenti 3 linee inserite per bellezza per non far vedere lo stacco nel terminale
                     titolo2();
-                    cout << "Casella scelta dall'avversario: " << casella << endl << endl;
                     giocatore1.visualizzazione_amica();
+                    cout << "\nCasella scelta dall'avversario: " << casella << endl;
                     cout << "\nCOLPITO!  X" << endl;
 
                     for(int i=0; i<10; i++){
@@ -512,17 +506,17 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
 
                     //Seguenti 3 linee inserite per bellezza per non far vedere lo stacco nel terminale
                     titolo2();
-                    cout << "Casella scelta dall'avversario: " << casella << endl << endl;
                     giocatore1.visualizzazione_amica();
+                    cout << "\nCasella scelta dall'avversario: " << casella << endl;
                     cout << "\nACQUA: ~     :(" << endl;
                 }
 
                 check = giocatore1.controllo_contatore_globale();
                 if(check==true){
-                    cout << "\n\nIL GIOCATORE " << nome2 << " HA VINTO!!!";
+                    cout << "\n\nIL GIOCATORE " << giocatoreAI.get_nome_giocatore() << " HA VINTO!!!";
                     giocatore1.visualizzazione_amica();
                     giocatoreAI.visualizzazione_amica();
-                    cout << "IL GIOCATORE " << nome2 << " HA VINTO!!!";
+                    cout << "\nIL GIOCATORE " << giocatoreAI.get_nome_giocatore() << " HA VINTO!!!";
                     break;
                 }
 
@@ -532,7 +526,7 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
 
                 //TURNO GIOCATORE 1
                 titolo2();
-                cout << "\n\n--------------- Turno di " << nome << " ---------------" << endl;
+                cout << "\n\n--------------- Turno di " << giocatore1.get_nome_giocatore() << " ---------------" << endl;
                 cout << "Puoi scegliere che casella avversaria colpire." << endl;
                 giocatore1.visualizzazione_amica();
                 giocatoreAI.visualizzazione_nemica();
@@ -556,7 +550,7 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
                     //Seguenti 3 linee inserite per bellezza per non far vedere lo stacco nel terminale
                         titolo2();
                         giocatoreAI.visualizzazione_nemica();
-                        cout << "\nCasella scelta: " << casella << endl << endl;
+                        cout << "\nCasella scelta: " << casella << endl;
 
                     cout << "\nCOLPITO!  X" << endl;
 
@@ -574,7 +568,7 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
                     //Seguenti 3 linee inserite per bellezza per non far vedere lo stacco nel terminale
                         titolo2();
                         giocatoreAI.visualizzazione_nemica();
-                        cout << "\nCasella scelta: " << casella << endl << endl;
+                        cout << "\nCasella scelta: " << casella << endl;
 
 
                     cout << "\nACQUA: ~     :(" << endl;
@@ -582,18 +576,16 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
 
                 check = giocatoreAI.controllo_contatore_globale();
                 if(check==true){
-                    cout << "\n\nIL GIOCATORE " << nome2 << " HA VINTO!!!";
+                    cout << "\n\nIL GIOCATORE " << giocatore1.get_nome_giocatore() << " HA VINTO!!!";
                     giocatore1.visualizzazione_amica();
                     giocatoreAI.visualizzazione_amica();
-                    cout << "IL GIOCATORE " << nome2 << " HA VINTO!!!";
+                    cout << "IL GIOCATORE " << giocatore1.get_nome_giocatore() << " HA VINTO!!!";
                     break;
                 }
 
                 //PASSO TURNO
                 passo();
 
-
-                numero_turno++;
 
 
             }
