@@ -144,4 +144,7 @@ void board::aggiungi_mossa_giocata(string casella){
     mosse_precedenti.push_back(casella);
 }
 
+string board::get_mossa_precedente(){
+    return mosse_precedenti[mosse_precedenti.size()-1];
+}
 
