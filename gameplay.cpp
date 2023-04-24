@@ -381,7 +381,10 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
 
 
                 //TURNO GIOCATORE 2: AI
-
+                if(giocatoreAI.get_memoria()){
+                    string centro=giocatoreAI.get_casella_centrale();
+                    if(giocatoreAI.tutte_caselle_adiacenti_gia_sparate(centro)) giocatoreAI.set_memoria(false);
+                }
 
                 do{
                     x_tiro=giocatoreAI.scelta_x_da_colpire();
@@ -397,6 +400,7 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
 
                     giocatoreAI.set_memoria(true);
                     giocatoreAI.set_colpo_precedente(x_tiro,y_tiro);
+                    giocatoreAI.set_casella_centrale(casella);
 
                     //Seguenti 3 linee inserite per bellezza per non far vedere lo stacco nel terminale
                     titolo2();
@@ -406,6 +410,7 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
 
                     for(int i=0; i<10; i++){
                         giocatore1.nomi_navi[i].controllo_colpito_o_affondato(x_tiro,y_tiro);
+                        if(giocatore1.nomi_navi[i].get_stato()==1) giocatoreAI.set_memoria(false);
 
                     }
 
@@ -416,7 +421,7 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
                     giocatore1.set_casella_tabella_amica(x_tiro,y_tiro,'~');
                     giocatore1.set_casella_tabella_nemica(x_tiro,y_tiro,'~');
 
-                    if(giocatoreAI.get_memoria()) giocatoreAI.aumenta_contatore_colpi();
+                    
 
 
                     //Seguenti 3 linee inserite per bellezza per non far vedere lo stacco nel terminale

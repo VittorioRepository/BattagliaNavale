@@ -60,7 +60,7 @@ void giocatore::posizionamento_navi_giocatore(){
 
             if(x+lunghezza<11){ //controllo dimensioni board
                 for(int k=0; k<lunghezza; k++){
-                    if(tabella[y][x+k]=='O'){ //controllo se è gia' presente una nave
+                    if(tabella[y][x+k]=='O'){ //controllo se ï¿½ gia' presente una nave
                         i--; //se e' presente, abbasso l'indice di 1
                         controllo_compenetrazione_e_dimensioni = 1; //compenetrazione
                         break; //fermo il ciclo for
@@ -83,7 +83,7 @@ void giocatore::posizionamento_navi_giocatore(){
 
             if(y+lunghezza<11){ //controllo dimensioni board
                 for(int k=0; k<lunghezza; k++){
-                    if(tabella[y+k][x]=='O'){ //controllo se è gia' presente una nave
+                    if(tabella[y+k][x]=='O'){ //controllo se ï¿½ gia' presente una nave
                         i--; //se e' presente, abbasso l'indice di 1
                         controllo_compenetrazione_e_dimensioni = 1; //compenetrazione
                         break; //fermo il ciclo for
@@ -110,7 +110,7 @@ bool giocatore::controllo_ripetizioni(string casella){
     int lunghezza=mosse_precedenti.size();
     for(int i=0;i<lunghezza;i++){
         if (mosse_precedenti[i]==casella){
-            cout << "\n Hai già colpito questa casella! Prova con un'altra!";
+            cout << "\n Hai gia' colpito questa casella! Prova con un'altra!";
             return false;
         }
     }

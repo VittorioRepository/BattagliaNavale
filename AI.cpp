@@ -159,7 +159,7 @@ int ai::scelta_x_da_colpire(){
     }
 
 
-int ai::scelta_y_da_colpire(){
+int ai::scelta_y_da_colpire() {
 
     if(!memoria) return coordinata_random();
 
@@ -178,13 +178,13 @@ int ai::scelta_y_da_colpire(){
 }
 
 
-int ai::coordinata_random(){
+int ai::coordinata_random() const{
 
     return rand()%10;
 
 }
 
-bool ai::casella_partenza(int lunghezza, int x, int y, string direzione){
+bool ai::casella_partenza(int lunghezza, int x, int y, string direzione) const{
 
     if (direzione=="O"){
 
@@ -238,7 +238,7 @@ void ai::set_colpo_precedente(int x, int y){
     colpo_precedente[1]=y;
 }
 
-bool ai::get_memoria(){
+bool ai::get_memoria() const{
     return memoria;
 }
 
@@ -248,6 +248,101 @@ void ai::aumenta_contatore_colpi(){
         contatore_colpi=0;
         memoria=false;
     }
+}
+
+bool ai::tutte_caselle_adiacenti_gia_sparate(string casella) const{
+
+    int x;
+    int y;
+    trasformazione_coordinate_ridotta(casella,x,y);
+
+    string casella1=trasformazione_coordinate_ridotta_inversa(x,y+1);
+    string casella2=trasformazione_coordinate_ridotta_inversa(x,y-1);
+    string casella3=trasformazione_coordinate_ridotta_inversa(x+1,y);
+    string casella4=trasformazione_coordinate_ridotta_inversa(x-1,y);
+
+    if(x==0){
+        if(y==0){
+            if(find(mosse_precedenti.begin(), mosse_precedenti.end(), casella1) != mosse_precedenti.end() && find(mosse_precedenti.begin(), mosse_precedenti.end(), casella3) != mosse_precedenti.end()){
+            return true;
+        }
+            else return false;
+        }
+        else if (y==9){
+            if(find(mosse_precedenti.begin(), mosse_precedenti.end(), casella2) != mosse_precedenti.end() && find(mosse_precedenti.begin(), mosse_precedenti.end(), casella3) != mosse_precedenti.end()){
+            return true;
+        }
+            else return false;
+        }
+
+        else { 
+            if(find(mosse_precedenti.begin(), mosse_precedenti.end(), casella1) != mosse_precedenti.end() && find(mosse_precedenti.begin(), mosse_precedenti.end(), casella2) != mosse_precedenti.end() && find(mosse_precedenti.begin(), mosse_precedenti.end(), casella3) != mosse_precedenti.end()) {
+            return true;
+        }
+            else return false;
+        }
+    }
+
+    else if(x==9){
+
+        if(y==0){
+            if(find(mosse_precedenti.begin(), mosse_precedenti.end(), casella1) != mosse_precedenti.end() && find(mosse_precedenti.begin(), mosse_precedenti.end(), casella4) != mosse_precedenti.end()){
+            return true;
+        }
+            else return false;
+        }
+        else if (y==9){
+            if(find(mosse_precedenti.begin(), mosse_precedenti.end(), casella2) != mosse_precedenti.end() && find(mosse_precedenti.begin(), mosse_precedenti.end(), casella4) != mosse_precedenti.end()){
+            return true;
+        }
+            else return false;
+        }
+
+        else { 
+            if(find(mosse_precedenti.begin(), mosse_precedenti.end(), casella1) != mosse_precedenti.end() && find(mosse_precedenti.begin(), mosse_precedenti.end(), casella2) != mosse_precedenti.end() && find(mosse_precedenti.begin(), mosse_precedenti.end(), casella4) != mosse_precedenti.end()) {
+            return true;
+        }
+            else return false;
+        }
+
+
+    }
+
+    else{
+
+        if(y==0){
+            if(find(mosse_precedenti.begin(), mosse_precedenti.end(), casella1) != mosse_precedenti.end() && find(mosse_precedenti.begin(), mosse_precedenti.end(), casella4) != mosse_precedenti.end() && find(mosse_precedenti.begin(), mosse_precedenti.end(), casella3) != mosse_precedenti.end()){
+            return true;
+        }
+            else return false;
+        }
+        else if (y==9){
+            if(find(mosse_precedenti.begin(), mosse_precedenti.end(), casella2) != mosse_precedenti.end() && find(mosse_precedenti.begin(), mosse_precedenti.end(), casella4) != mosse_precedenti.end() && find(mosse_precedenti.begin(), mosse_precedenti.end(), casella3) != mosse_precedenti.end()){
+            return true;
+        }
+            else return false;
+        }
+
+        else { 
+            if(find(mosse_precedenti.begin(), mosse_precedenti.end(), casella1) != mosse_precedenti.end() && find(mosse_precedenti.begin(), mosse_precedenti.end(), casella2) != mosse_precedenti.end() && find(mosse_precedenti.begin(), mosse_precedenti.end(), casella4) != mosse_precedenti.end() && find(mosse_precedenti.begin(), mosse_precedenti.end(), casella4) != mosse_precedenti.end()) {
+            return true;
+        }
+            else return false;
+        }
+
+
+
+    }
+
+
+}
+
+void ai::set_casella_centrale(string casella) {
+    casella_centrale=casella;
+}
+
+string ai::get_casella_centrale() const{
+    return casella_centrale;
 }
 
 

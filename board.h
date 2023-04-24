@@ -32,6 +32,7 @@ public:
 
     bool controllo_ripetizioni(string);
     void aggiungi_mossa_giocata(string);
+    string get_mossa_precedente();
 
     string get_nome_giocatore();
     void set_nome_giocatore(string);
