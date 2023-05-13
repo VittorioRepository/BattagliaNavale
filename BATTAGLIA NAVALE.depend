@@ -446,10 +446,10 @@
 	<string>
 	"nave.h"
 
-1682263880 source:c:\users\vitto\documents\github\battaglianavale\board.cpp
+1682321014 source:c:\users\vitto\documents\github\battaglianavale\board.cpp
 	"board.h"
 
-1682263880 c:\users\vitto\documents\github\battaglianavale\board.h
+1682321014 c:\users\vitto\documents\github\battaglianavale\board.h
 	<string>
 	<iostream>
 	<vector>
@@ -482,10 +482,10 @@
 1682263880 source:c:\users\vitto\documents\github\battaglianavale\nave.cpp
 	"nave.h"
 
-1682263880 source:c:\users\vitto\documents\github\battaglianavale\ai.cpp
+1682321014 source:c:\users\vitto\documents\github\battaglianavale\ai.cpp
 	"ai.h"
 
-1682263880 source:c:\users\vitto\documents\github\battaglianavale\giocatore.cpp
+1682321014 source:c:\users\vitto\documents\github\battaglianavale\giocatore.cpp
 	"giocatore.h"
 
 1682263880 c:\users\vitto\documents\github\battaglianavale\giocatore.h
@@ -495,14 +495,15 @@
 	"funzioni.h"
 	"board.h"
 
-1682263880 c:\users\vitto\documents\github\battaglianavale\ai.h
+1682321014 c:\users\vitto\documents\github\battaglianavale\ai.h
 	<string>
 	<iostream>
 	"nave.h"
 	"funzioni.h"
 	"board.h"
+	<algorithm>
 
-1682265718 source:c:\users\vitto\documents\github\battaglianavale\gameplay.cpp
+1683898431 source:c:\users\vitto\documents\github\battaglianavale\gameplay.cpp
 	"gameplay.h"
 	<stdlib.h>
 	<time.h>

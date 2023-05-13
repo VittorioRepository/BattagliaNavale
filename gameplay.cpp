@@ -163,10 +163,14 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
 
             check = giocatore2.controllo_contatore_globale();
             if(check==true){
+                string exit;
+
                 cout << "\n\nIL GIOCATORE " << giocatore1.get_nome_giocatore() << " HA VINTO!!!";
                 giocatore1.visualizzazione_amica();
                 giocatore2.visualizzazione_amica();
                 cout << "IL GIOCATORE " << giocatore1.get_nome_giocatore() << " HA VINTO!!!";
+                cout << "\n\nInserisci un carattere qualunque per uscire dal gioco: ";
+                cin >> exit;
                 break;
             }
 
@@ -230,10 +234,14 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
 
             check = giocatore1.controllo_contatore_globale();
             if(check==true){
+                string exit;
+
                 cout << "\n\nIL GIOCATORE " << giocatore2.get_nome_giocatore() << " HA VINTO!!!";
                 giocatore1.visualizzazione_amica();
                 giocatore2.visualizzazione_amica();
                 cout << "IL GIOCATORE " << giocatore2.get_nome_giocatore() << " HA VINTO!!!";
+                cout << "\n\nInserisci un carattere qualunque per uscire dal gioco: ";
+                cin >> exit;
                 break;
             }
 
@@ -365,10 +373,14 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
 
                 check = giocatoreAI.controllo_contatore_globale();
                 if(check==true){
+                    string exit;
+
                     cout << "\n\nIL GIOCATORE " << giocatore1.get_nome_giocatore() << " HA VINTO!!!";
                     giocatore1.visualizzazione_amica();
                     giocatoreAI.visualizzazione_amica();
                     cout << "\nIL GIOCATORE " << giocatore1.get_nome_giocatore() << " HA VINTO!!!";
+                    cout << "\n\nInserisci un carattere qualunque per uscire dal gioco: ";
+                    cin >> exit;
                     break;
                 }
 
@@ -421,7 +433,7 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
                     giocatore1.set_casella_tabella_amica(x_tiro,y_tiro,'~');
                     giocatore1.set_casella_tabella_nemica(x_tiro,y_tiro,'~');
 
-                    
+
 
 
                     //Seguenti 3 linee inserite per bellezza per non far vedere lo stacco nel terminale
@@ -433,10 +445,14 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
 
                 check = giocatore1.controllo_contatore_globale();
                 if(check==true){
+                    string exit;
+
                     cout << "\n\nIL GIOCATORE " << giocatoreAI.get_nome_giocatore() << " HA VINTO!!!";
                     giocatore1.visualizzazione_amica();
                     giocatoreAI.visualizzazione_amica();
                     cout << "IL GIOCATORE " << giocatoreAI.get_nome_giocatore() << " HA VINTO!!!";
+                    cout << "\n\nInserisci un carattere qualunque per uscire dal gioco: ";
+                    cin >> exit;
                     break;
                 }
 
@@ -581,10 +597,14 @@ void gameplay(int &numero_giocatori, string & nome, string & nome2){
 
                 check = giocatoreAI.controllo_contatore_globale();
                 if(check==true){
+                    string exit;
+
                     cout << "\n\nIL GIOCATORE " << giocatore1.get_nome_giocatore() << " HA VINTO!!!";
                     giocatore1.visualizzazione_amica();
                     giocatoreAI.visualizzazione_amica();
                     cout << "IL GIOCATORE " << giocatore1.get_nome_giocatore() << " HA VINTO!!!";
+                    cout << "\n\nInserisci un carattere qualunque per uscire dal gioco: ";
+                    cin >> exit;
                     break;
                 }
 
